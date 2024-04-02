@@ -47,3 +47,18 @@
   color: white;  
   margin-left: 500px !important;
 }
+
+/* For New Account 
+Page */
+
+.create {
+  font-size: 80px;
+  color: black;
+  margin-bottom: 30px;
+}
+
+.started-button {
+  background-color: black !important;
+  color: white;  
+  margin-top: 20px;
+}
