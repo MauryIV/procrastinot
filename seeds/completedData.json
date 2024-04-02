@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Project Alpha",
+    "description": "A web application for managing tasks and deadlines."
+  },
+  {
+    "title": "Project Beta",
+    "description": "An e-commerce platform for selling handmade crafts."
+  },
+  {
+    "title": "Project Gamma",
+    "description": "A mobile app for tracking fitness and nutrition."
+  },
+  {
+    "title": "Project Delta",
+    "description": "A game development project focusing on puzzle games."
+  }
+]
