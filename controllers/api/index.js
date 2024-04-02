@@ -1,7 +1,12 @@
 const router = require('express').Router();
-const userApi = require('./auth_route')
+const authRoutes = require('./authRoutes');
+const todoRoutes = require('./todoRoutes');
+const workingRoutes = require('./workingRoutes');
+const completedRoutes = require('./completedRoutes');
 
-router.use
+router.use('/auth', authRoutes);
+router.use('/todo', todoRoutes);
+router.use('/working', workingRoutes);
+router.use('/completed', completedRoutes);
 
-
-module.exports = router
+module.exports = router;

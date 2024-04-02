@@ -1,12 +1,8 @@
-const express = require('express');
-const router = express.Router();
-const todoController = require('../controllers/api/todoController');
+// Use for GET routes
+const router = require('express').Router();
+const { Todo } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.post('/createTask', todoController.createTask);
+router.get('/todo', async (req, res) => {
 
-router.put('/updateTask/:id', todoController.updateTask);
-
-router.delete('/deleteTask/:id', todoController.deleteTask);
-// Other to-do routes...
-
-module.exports = router;
+});
