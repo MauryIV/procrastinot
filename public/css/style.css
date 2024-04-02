@@ -1,7 +1,10 @@
 .hero {
-    background-color:antiquewhite !important;
+    background-color:#F4F1EB !important;
+    font-family: "Hanken Grotesk", sans-serif;
+    font-weight: 100;
   }
 
+  /* For the Landing Page */
   #main-header {
     font-size: 120px;
     color: black;
@@ -17,4 +20,30 @@
     background-color:black !important;
     color:white;
     margin-top: 50px;
+}
+
+
+/* For the Log in Page */
+
+.title {
+  font-size: 90px;
+  color: black !important;
+}
+.input-field {
+  background-color:#B6B4AE !important;
+}
+
+.log-button {
+  background-color: black !important;
+}
+
+.about-button {
+  background-color: black !important;
+  margin-right: 555px !important;
+}
+
+.account-button {
+  background-color: black !important;
+  color: white;  
+  margin-left: 500px !important;
 }
