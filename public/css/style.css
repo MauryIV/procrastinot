@@ -62,3 +62,87 @@ Page */
   color: white;  
   margin-top: 55px;
 }
+
+/* DashBoard */
+
+.body {
+  background-color:#32363E !important;
+}
+
+/* .custom-subtitle {
+  font-size: 15px !important;
+  margin-top: 10%;
+  margin-left: -1%;
+} */
+
+.custom-title {
+  font-size: 100px;
+}
+
+.custom-boxes {
+  position: relative;
+  padding: 20px;
+  background-color:#32363E !important;
+  
+}
+.custom-box {
+  position: absolute;
+  padding: 10px; 
+  background-color:#32363E !important;
+}
+
+.custom-box.working-on {
+  background-color:#32363E !important;
+  top: 10px;
+  left: 400px;
+
+}
+
+.custom-box.to-do {
+  background-color:#32363E !important;
+  top: 180px;
+  right: 200px;
+}
+
+
+.custom-box.completed {
+  background-color:#32363E !important;
+  top: 200px;
+} 
+
+
+.custom-box.total-time-spent {
+  top: 350px;
+  right: 550px;
+}
+
+.working-on p {
+  font-size: 70px !important;}
+
+.to-do p {
+  font-size: 70px !important; 
+}
+
+.completed p {
+  font-size: 70px !important; 
+}
+
+.total-time-spent p {
+  font-size: 30px !important; 
+}
+
+.custom-box.working-on *{
+  background-color: #64d4e7 !important;
+ }
+
+.custom-box.to-do * {
+  background-color: #c432e9 !important;
+}
+
+.custom-box.completed * {
+  background-color: #6cbe65 !important;
+}
+
+.custom-box.total-time-spent * {
+  background-color: #ec4577 !important;
+}
