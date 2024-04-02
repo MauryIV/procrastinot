@@ -1,11 +1,7 @@
-const express = require('express');
-const router = express.Router();
-const authController = require('../controllers/api/authController');
+// Use for GET routes
+const router = require('express').Router();
+const { Auth } = require('../models');
 
-router.post('/login', authController.login);
+router.get('/auth', async (req, res) => {
 
-
-router.post('/register', authController.register);
-
-
-module.exports = router;
+});
