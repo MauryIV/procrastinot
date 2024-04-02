@@ -1,23 +1,24 @@
 .hero {
-    background-color:#F4F1EB !important;
-    font-family: "Hanken Grotesk", sans-serif;
-    font-weight: 100;
+    background-color:#32363E !important;
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
   }
 
   /* For the Landing Page */
   #main-header {
     font-size: 120px;
-    color: black;
+    color:white;
     
   }
 
   #sub-header {
     font-size: 50px;
-    color: black;
+    color: #7D56B6;
   }
 
   .custom-button {
-    background-color:black !important;
+    background-color:#B558A1 !important;
     color:white;
     margin-top: 50px;
 }
@@ -27,23 +28,23 @@
 
 .title {
   font-size: 90px;
-  color: black !important;
 }
+
 .input-field {
   background-color:#B6B4AE !important;
 }
 
 .log-button {
-  background-color: black !important;
+  background-color: #B558A1!important;
 }
 
 .about-button {
-  background-color: black !important;
+  background-color: #7D56B6!important;
   margin-right: 555px !important;
 }
 
 .account-button {
-  background-color: black !important;
+  background-color: #5e6bdd !important;
   color: white;  
   margin-left: 500px !important;
 }
@@ -52,13 +53,12 @@
 Page */
 
 .create {
-  font-size: 80px;
-  color: black;
-  margin-bottom: 30px;
+  font-size: 70px;
+  margin-bottom: 20px;
 }
 
 .started-button {
-  background-color: black !important;
+  background-color: #B558A1 !important;
   color: white;  
-  margin-top: 20px;
+  margin-top: 55px;
 }
