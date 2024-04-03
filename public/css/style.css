@@ -1,28 +1,30 @@
 .hero {
-    background-color:#32363E !important;
-    font-family: "Space Mono", monospace;
-    font-weight: 700;
-    font-style: normal;
-  }
-
-  /* For the Landing Page */
-  #main-header {
-    font-size: 120px;
-    color:white;
-    
-  }
-
-  #sub-header {
-    font-size: 50px;
-    color: #7D56B6;
-  }
-
-  .custom-button {
-    background-color:#B558A1 !important;
-    color:white;
-    margin-top: 50px;
+  background-image: url("../images/SpaceNerd.jpeg");
+  background-size: 100px 100px;
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-color:#32363E !important;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
 }
 
+/* For the Landing Page */
+#main-header {
+  font-size: 120px;
+  color: white;
+}
+
+#sub-header {
+  font-size: 50px;
+  color: #7d56b6;
+}
+
+.custom-button {
+  background-color: #b558a1 !important;
+  color: white;
+  margin-top: 50px;
+}
 
 /* For the Log in Page */
 
@@ -31,21 +33,21 @@
 }
 
 .input-field {
-  background-color:#B6B4AE !important;
+  background-color: #b6b4ae !important;
 }
 
 .log-button {
-  background-color: #B558A1!important;
+  background-color: #b558a1 !important;
 }
 
 .about-button {
-  background-color: #7D56B6!important;
+  background-color: #7d56b6 !important;
   margin-right: 555px !important;
 }
 
 .account-button {
   background-color: #5e6bdd !important;
-  color: white;  
+  color: white;
   margin-left: 500px !important;
 }
 
@@ -58,7 +60,7 @@ Page */
 }
 
 .started-button {
-  background-color: #B558A1 !important;
-  color: white;  
+  background-color: #b558a1 !important;
+  color: white;
   margin-top: 55px;
 }
