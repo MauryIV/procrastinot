@@ -6,3 +6,5 @@ const withAuth = require('../utils/auth');
 router.get('/working', async (req, res) => {
 
 });
+
+module.exports = router;
