@@ -9,3 +9,5 @@ const timeManager = new TimeManager();
 router.get('/completed', async (req, res) => {
 
 });
+
+module.exports = router;

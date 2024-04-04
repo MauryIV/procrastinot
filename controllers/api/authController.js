@@ -16,3 +16,5 @@ router.put('/auth', async (req, res) => {
 router.delete('/auth', async (req, res) => {
 
 });
+
+module.exports = router;
