@@ -4,7 +4,10 @@ const { Auth, Todo, Working, Completed } = require('../models');
 const authData = require('./authData.json');
 const todoData = require('./todoData.json');
 const workingData = require('./workingData.json');
-const completedData = require('./completedData.json');
+const completedData = require('./completedData.json')
+const TimeManager = require('als-time-manager');
+
+
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
