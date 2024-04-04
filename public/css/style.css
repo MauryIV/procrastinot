@@ -1,28 +1,30 @@
 .hero {
-    background-color:#32363E !important;
-    font-family: "Space Mono", monospace;
-    font-weight: 700;
-    font-style: normal;
-  }
-
-  /* For the Landing Page */
-  #main-header {
-    font-size: 120px;
-    color:white;
-    
-  }
-
-  #sub-header {
-    font-size: 50px;
-    color: #7D56B6;
-  }
-
-  .custom-button {
-    background-color:#B558A1 !important;
-    color:white;
-    margin-top: 50px;
+  background-image: url("../images/SpaceNerd.jpeg");
+  background-size: 100px 100px;
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-color:#32363E !important;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
 }
 
+/* For the Landing Page */
+#main-header {
+  font-size: 120px;
+  color:white;    
+}
+
+#sub-header {
+  font-size: 50px;
+  color: #7D56B6;
+}
+
+.custom-button {
+  background-color:#B558A1 !important;
+  color:white;
+  margin-top: 50px;
+}
 
 /* For the Log in Page */
 
