@@ -2,18 +2,20 @@
   <div class='hero-body'>
     <div class='container has-text-centered'>
       <div class='columns is-centered'>
-        <div class='column is-half'>
+        <div class='column is-full'>
           <h1 class='title'>Projects to do</h1>
           <div class='field'>
             {{#if todos.length}}
             {{#each todos as |todo|}}
-              <h4><a href='/todo/{{todo.id}}'>{{todo.title}}</a></h4>
+              <a class='project-details' data-id='{{todo.id}}'>{{todo.title}}</a>
+              <h4>{{todo.description}}</h4>
+              {{> modal}}
             {{/each}}
             {{/if}}
           </div>
           <div class='field'>
             <div class='control'>
-              <a href='/new-project' class='button is-primary add-button'>Add new Project</a>
+              <button class='button is-primary add-button add-project-button'>Add new Project</button>
             </div>
           </div>
           <div class='buttons is-centered mt-5'>
@@ -26,3 +28,5 @@
     </div>
   </div>
 </section>
+
+<script src="./js/todo.js"></script>
