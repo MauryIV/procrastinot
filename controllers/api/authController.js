@@ -1,6 +1,9 @@
 // Use for PUT, DELETE, POST, routes
 const router = require('express').Router();
 const { Auth } = require('../../models');
+const TimeManager = require('als-time-manager');
+
+const timeManager = new TimeManager();
 
 router.post('/login', async (req, res) => {
   try {

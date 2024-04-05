@@ -71,12 +71,6 @@ Page */
   background-color:#32363E !important;
 }
 
-/* .custom-subtitle {
-  font-size: 15px !important;
-  margin-top: 10%;
-  margin-left: -1%;
-} */
-
 .custom-title {
   font-size: 100px;
 }
@@ -147,4 +141,68 @@ Page */
 
 .custom-box.total-time-spent * {
   background-color: #ec4577 !important;
+}
+
+
+
+/* Completed/ To-do/ Working pages */
+
+.add-project-button {
+  background-color: #45ec85 !important;
+  color: #32363E !important;
+}
+
+.project-name {
+  margin-left: 40px; 
+}
+
+.details-button {
+  background-color: #5e6bdd !important;
+  color: white;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+
+.project {
+  position: relative;
+  font-size: 25px;
+}
+
+.time-adjustment {
+  position: absolute;
+  right: 0;
+  top: 35px;
+  display: flex; 
+  align-items: center; 
+}
+
+.project-time {
+  margin-left: 15px; 
+}
+
+.delete-project-button {
+  background-color: #ec4577;
+  color: rgb(0, 0, 0);
+}
+
+.total-time-section {
+  background-color:#32363E; 
+  color: white;
+  height: 100vh; 
+  margin: 0; 
+  padding: 20px; 
+  box-sizing: border-box;
+}
+
+.total-time-section h3 {
+  margin-top: 0; 
+  color: white;
+}
+
+.control-buttons i:hover {
+  color: #e6e954; 
+}
+
+.control-buttons {
+  margin-left: 10px;
 }

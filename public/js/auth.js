@@ -1,3 +1,7 @@
+const TimeManager = require('als-time-manager');
+
+
+
 const loginFunction = async (event) => {
   event.preventDefault();
 
@@ -26,3 +30,6 @@ document.querySelector('.login-form').addEventListener('submit', loginFunction);
 
 
 
+
+
+const timeManager = new TimeManager();
