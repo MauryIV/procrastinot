@@ -1,3 +1,6 @@
+let activePage = 'todo'
+
+
 const TimeManager = require('als-time-manager');
 const express = require('express');
 const bodyParser = require('body-parser');
