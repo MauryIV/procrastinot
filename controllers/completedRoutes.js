@@ -6,8 +6,10 @@ const TimeManager = require('als-time-manager');
 
 const timeManager = new TimeManager();
 
-router.get('/completed', async (req, res) => {
-
+router.get('/', async (req, res) => {
+  res.render('completed');
 });
+
+
 
 module.exports = router;
