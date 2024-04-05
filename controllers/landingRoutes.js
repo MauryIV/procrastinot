@@ -6,6 +6,7 @@ const timeManager = new TimeManager();
 
 router.get('/', (req, res) => {
   res.render('landingpage');
+
 });
 
 router.get('/auth', (req, res) => {
@@ -18,6 +19,7 @@ router.get('/create', (req, res) => {
 
 router.get('/dashboard', (req, res) => {
   res.render('dashboard');
+
 });
 
 module.exports = router;
