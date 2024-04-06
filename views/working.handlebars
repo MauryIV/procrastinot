@@ -1,0 +1,92 @@
+<section class='hero is-primary'>
+    <div class='hero-body'>
+        <div class='container'>
+            <h2 class='title has-text-centered custom-title'>Completed</h2>
+
+            <section class='section project-management-section'>
+                <div class='container'>
+                    <div class='columns'>
+                        <div class='column is-half'>
+                            <!-- Add a button to trigger the modal -->
+                            <button class='button is-success is-small add-project-button' id='add-project-button'>Add
+                                Project</button>
+                            <!-- Modal for adding project-->
+                            <div class='modal' id='projectModal'>
+                                <div class='modal-background'></div>
+                                <div class='modal-content'>
+                                    <div class='modal-card'>
+                                        <header class='modal-card-head'>
+                                            <p class='modal-card-title'>Add Project</p>
+                                            <button class='delete close-modal-button' aria-label='close'></button>
+                                        </header>
+                                        <section class='modal-card-body'>
+                                            <!-- Section for selecting projects -->
+                                            <div id='existingProjectsSection'>
+                                                <p>Select an existing project:</p>
+                                                <!-- List of existing projects will be loaded here -->
+                                                <ul id='existingProjectsList'>
+                                                    <!-- Projects will be populated here dynamically -->
+                                                </ul>
+                                                <div id='newProjectSection'>
+                                                    <p>Create a new project:</p>
+                                                    <div class='field'>
+                                                        <label class='label'>Title</label>
+                                                        <div class='control'>
+                                                            <input class='input' type='text' id='newProjectTitle'
+                                                                placeholder='Enter project title'>
+                                                        </div>
+                                                    </div>
+                                                    <div class='field'>
+                                                        <label class='label'>Details</label>
+                                                        <div class='control'>
+                                                            <textarea class='textarea' id='newProjectDetails'
+                                                                placeholder='Enter project details'></textarea>
+                                                        </div>
+                                        </section>
+                                        <footer class='modal-card-foot'>
+                                            <button class='button is-success add-new-project-button'>Add New
+                                                Project</button>
+                                            <button class='button is-danger close-modal-button'>Close</button>
+                                        </footer>
+
+                                    </div>
+                                </div>
+                            </div>
+            </section>
+            <!-- Inside the project list -->
+            <div class='project'>
+                <div class='delete-button'>
+                    <button class='button is-small delete-project-button'>
+                        <i class='fas fa-trash-alt'></i>
+                    </button>
+                </div>
+
+                <div class='project-info'>
+                    <span class='project-name'>Project Name 1</span>
+                    <div> <!-- Wrapper div for the button -->
+                        <button class='button is-small details-button'>Details</button>
+                    </div>
+                </div>
+                <div class='time-adjustment'>
+                    <p>Time Spent:</p>
+                    <div class='time-display'>
+                        <p><span class='project-time'>00:00 Hour(s)</span></p>
+                    </div>
+                    <div class='control-buttons'>
+                        <i class='fas fa-arrow-up increase-hour'></i>
+                        <i class='fas fa-arrow-down decrease-hour'></i>
+                    </div>
+                </div>
+            </div>
+
+</section>
+<section class='section total-time-section'>
+    <div class='container has-text-centered'>
+        <h3 class='title is-3'>Total Time Spent</h3>
+        <p>00:00 Hour(s)</p> <!-- Placeholder for total time spent, update with actual time -->
+    </div>
+</section>
+</div>
+</div>
+</section>
+<script src='/public/js/working.js'></script>
