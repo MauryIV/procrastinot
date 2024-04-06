@@ -113,3 +113,31 @@ app.listen(PORT, () => {
     console.log('Server is running on port ${PORT}');
 });
 
+// document.addEventListener('DOMContentLoaded', function() {
+//   const moveButtons = document.querySelectorAll('.move-to-completed');
+  
+//   moveButtons.forEach(button => {
+//       button.addEventListener('click', function(event) {
+//           event.preventDefault();
+//           const todoId = this.dataset.id;
+          
+//           // Send AJAX request to move data to completed page
+//           fetch(`/move-to-completed/${todoId}`, {
+//               method: 'POST',
+//               headers: {
+//                   'Content-Type': 'application/json'
+//               }
+//           })
+//           .then(response => {
+//               if (response.ok) {
+//                   // Redirect to completed page after successful move
+//                   window.location.href = '/completed';
+//               } else {
+//                   console.error('Error moving todo to completed');
+//               }
+//           })
+//           .catch(error => console.error('Error:', error));
+//       });
+//   });
+// });
+
