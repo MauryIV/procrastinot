@@ -1,72 +1,114 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const addProjectButton = document.querySelector('.add-project-button');
-    const projectModal = document.getElementById('projectModal');
-    const closeModalButtons = document.querySelectorAll('.close-modal-button');
-    const projectList = document.getElementById('projectList');
+let activePage = 'completed'
 
-    // Add project button click event listener
-    addProjectButton.addEventListener('click', () => {
-        projectModal.classList.add('is-active');
+
+const TimeManager = require('als-time-manager');
+const express = require('express');
+const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+const { sequelize } = require('./models');
+const routes = require('./routes');
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
+
+function CompletedProjects() {
+  const [projects, setProjects] = useState([
+    // Sample project data (replace with actual project data)
+    { id: 1, title: 'Project 1', deadline: new Date('2024-04-10'), status: 'on time', timeSpent: 0 },
+    { id: 2, title: 'Project 2', deadline: new Date('2024-03-20'), status: 'late', timeSpent: 0 },
+    { id: 3, title: 'Project 3', deadline: new Date('2024-04-25'), status: 'in good standing', timeSpent: 0 }
+  ]);
+
+  // Function to update project status based on deadline
+  const updateProjectStatus = () => {
+    const currentDate = new Date();
+    const updatedProjects = projects.map(project => {
+      if (currentDate > project.deadline) {
+        return { ...project, status: 'Late' };
+      } else if (currentDate < project.deadline) {
+        return { ...project, status: 'On time' };
+      } else {
+        return { ...project, status: 'In good standing' };
+      }
     });
+    setProjects(updatedProjects);
+  };
 
-    // Close modal button click event listeners
-    closeModalButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            projectModal.classList.remove('is-active');
+  // Timer
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setProjects(prevProjects => {
+        return prevProjects.map(project => {
+          return { ...project, timeSpent: project.timeSpent + 1 };
         });
-    });
+      });
+    }, 1000); // Update time every second
 
-    // Add new project button click event listener
-    document.querySelector('.add-new-project-button').addEventListener('click', () => {
-        const projectNameInput = document.getElementById('newProjectTitle').value.trim();
+    // Clean up the interval
+    return () => clearInterval(intervalId);
+  }, []);
 
-        if (projectNameInput) {
-            addProject(projectNameInput);
-            projectModal.classList.remove('is-active');
-            document.getElementById('newProjectTitle').value = '';
-        } else {
-            alert('Please enter a project name.');
-        }
-    });
-});
+  // Format time to HH:MM:SS
+  const formatTime = seconds => {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const remainingSeconds = seconds % 60;
+    return `${hours}:${minutes < 10 ? '0' : ''}${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+  };
 
-// Function to add project to the project list
-function addProject(projectName) {
-    const project = document.createElement('div');
-    project.classList.add('project');
-    project.innerHTML = `
-        <div class="project-info">
-            <span class="project-name">${projectName}</span>
-            <button class="button is-small details-button">Details</button>
-            <div class="details-section is-hidden">
-                <p>Project details go here...</p>
-            </div>
-        </div>
-        <div class="time-adjustment">
-            <p>Time Spent:</p>
-            <div class="time-display">
-                <p><span class="project-time">00:00 Hour(s)</span></p>
-            </div>
-            <div class="control-buttons">
-                <i class="fas fa-arrow-up increase-hour"></i>
-                <i class="fas fa-arrow-down decrease-hour"></i>
-            </div>
-        </div>
-        <div class="delete-button">
-            <button class="button is-danger is-small delete-project-button">Delete</button>
-        </div>
-    `;
-    projectList.appendChild(project);
+  return (
+    <div>
+      <h2>Completed Projects</h2>
+      <p>Total Time: 00:00 Hour(s)</p>
+      <ul>
+        {projects.map(project => (
+          <li key={project.id}>
+            <span>{project.title}</span>
+            <span>Status: {project.status}</span>
+            <span>Time Spent: {formatTime(project.timeSpent)}</span>
+            <button>Edit</button>
+            <button>Start</button>
+            <button>Complete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
-// Delete project from the project list
-document.addEventListener('click', event => {
-    if (event.target.classList.contains('delete-project-button')) {
-        const projectToDelete = event.target.closest('.project');
-        deleteProject(projectToDelete);
-    }
+// Render the CompletedProjects component
+ReactDOM.render(
+  <CompletedProjects />,
+  document.getElementById('completed-projects-container')
+);
+
+
+dotenv.config();
+const app = express();
+
+// middleware
+app.use(bodyParser.json());
+// other middleware?
+
+
+sequelize.authenticate()
+.then(() => {
+    console.log('Database connection successful')
+})
+.catch(err => {
+    console.error('Database connection failed:', err);
 });
 
-function deleteProject(project) {
-    project.remove();
-}
+// Route Def
+app.use('/api', routes);
+
+// error for middleware
+app.use((err, req, res, next) => {
+    console.error(err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  });
+
+// starting the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log('Server is running on port ${PORT}');
+});
