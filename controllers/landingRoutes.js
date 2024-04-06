@@ -5,7 +5,7 @@ const TimeManager = require('als-time-manager');
 const timeManager = new TimeManager();
 
 router.get('/', (req, res) => {
-  res.render('langingpage');
+  res.render('landingpage');
 });
 
 module.exports = router;
