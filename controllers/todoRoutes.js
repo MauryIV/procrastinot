@@ -1,5 +1,4 @@
 // Use for GET routes
-const express = require('express');
 const router = require('express').Router();
 const { Todo, Auth } = require('../models');
 const withAuth = require('../utils/auth');

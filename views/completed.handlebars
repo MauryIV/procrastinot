@@ -4,7 +4,7 @@
     <div class='container has-text-centered'>
       <div class='columns is-centered'>
         <div class='column is-full'>
-          <h1 class='title'>Compelted</h1>
+          <h1 class='title'>Completed</h1>
           <div class='field'>
             {{#if completed.length}}
               {{#each completed as |completed|}}
@@ -41,10 +41,12 @@
           <div class='buttons is-centered mt-5'>
             <a href='/dashboard' class='button is-success dashboard-button'>Dashboard</a>
             <a href='/working' class='button is-info working-button'>Working</a>
-            <a href='/todo' class='button is-info completed-button'>To-Do</a>
+            <a href='/todo' class='button is-info todo-button'>To-Do</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+<script src="./js/completed.js"></script>
+<script src="./js/timeTrack.js"></script>
