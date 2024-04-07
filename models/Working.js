@@ -1,8 +1,8 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-const TimeManager = require('als-time-manager');
+// const TimeManager = require('als-time-manager');
 
-const timeManager = new TimeManager();
+// const timeManager = new TimeManager();
 
 class Working extends Model {}
 

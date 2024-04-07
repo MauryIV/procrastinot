@@ -1,4 +1,3 @@
-// Use for GET routes
 const router = require('express').Router();
 const { Working, Auth } = require('../models');
 const withAuth = require('../utils/auth');
@@ -6,18 +5,20 @@ const TimeManager = require('als-time-manager');
 
 const timeManager = new TimeManager();
 
-router.get('/', async (req, res) => {
-try {
-  const workingData = await Working.findAll({
-  });
-  const workings = workingData.map((working) => working.get({ plain: true }));
-  res.render('working', {
-    workings,
-    logged_in: req.session.logged_in,
-  });
-} catch (err) {
-  res.status(500).json(err);
-}
+router.get('/', withAuth, async (req, res) => {
+  try {
+    const authData = await Auth.findByPk(req.session.auth_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Working }],
+    });
+    const auth = authData.get({ plain: true });
+    res.render('working', {
+      ...auth,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get('/:id', async (req, res) => {
@@ -26,18 +27,17 @@ router.get('/:id', async (req, res) => {
       include: [
         {
           model: Auth,
-          attributes: [
-            'id',
-            'name',
-            'email',
-          ],
+          attributes: ['name'],
         },
       ],
     });
     const working = workingData.get({ plain: true });
-    res.render('working', { 
-      working, 
-      logged_in: req.session.logged_in 
+    const isCreator = (working.auth_id === req.session.auth_id);
+    res.render('project', {
+      ...working,
+      logged_in: req.session.logged_in,
+      isCreator,
+      model: 'working'
     });
   } catch (err) {
     res.status(500).json(err);

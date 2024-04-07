@@ -1,0 +1,22 @@
+<section class='hero is-fullheight is-primary'>
+  <div class='hero-body'>
+    <div class='container has-text-centered'>
+      <div class='columns is-centered'>
+        <div class='column is-full'>
+          <h1>Project Details</h1>
+          <h2 id="title">Title: {{title}}</h2>
+          <p id="description">Description: {{description}}</p>
+          <footer>
+            <button id="todo-button" class="button move-buttons" data-model="{{model}}" data-id="{{id}}">Move to To Do</button>
+            <button id="working-button" class="button move-buttons" data-model="{{model}}" data-id="{{id}}">Move to Working On</button>
+            <button id="completed-button" class="button move-buttons" data-model="{{model}}" data-id="{{id}}">Move to Completed</button>
+            <a href="/{{model}}" class="button">Back to {{model}}</a>
+            <button id="delete-project-button" class="button is-danger" data-model="{{model}}" data-id="{{id}}">Delete Project</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="./../js/moveProject.js"></script>

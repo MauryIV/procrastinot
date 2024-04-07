@@ -11,10 +11,22 @@
 </head>
 
 <body>
-    <main>
-
-        {{{body}}}
-    </main>
+  <main>
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1>procrastinot</h1>
+      <nav>
+        <a href="/dashboard">Dashboard</a>
+        {{#if logged_in}}
+          <a id="logout" href="/">Logout</a>
+        {{else}}
+          <a href="/auth">Login</a>
+        {{/if}}
+      </nav>
+    </header>
+    {{{body}}}
+  </main>
+  {{#if logged_in}}
+    <script src="./../js/logout.js"></script>
+  {{/if}}
 </body>
-
-
+</html>

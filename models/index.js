@@ -2,9 +2,9 @@ const Auth = require('./Auth');
 const Todo = require('./Todo');
 const Working = require('./Working');
 const Completed = require('./Completed');
-const TimeManager = require('als-time-manager');
+// const TimeManager = require('als-time-manager');
 
-const timeManager = new TimeManager();
+// const timeManager = new TimeManager();
 
 Auth.hasMany(Todo, {
   foreignKey: 'auth_id',

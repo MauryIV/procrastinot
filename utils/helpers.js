@@ -1,6 +1,6 @@
-const TimeManager = require('als-time-manager');
+// const TimeManager = require('als-time-manager');
 
-const timeManager = new TimeManager();
+// const timeManager = new TimeManager();
 
 module.exports = {
   format_date: (date) => {

@@ -1,4 +1,3 @@
-
 <section class='hero is-fullheight is-primary'>
   <div class='hero-body'>
     <div class='container has-text-centered'>
@@ -6,13 +5,13 @@
         <div class='column is-full'>
           <h1 class='title'>Completed</h1>
           <div class='field'>
-            {{#if completed.length}}
-              {{#each completed as |completed|}}
+            {{#if completeds.length}}
+              {{#each completeds as |completed|}}
                 <div class='completed-item'>
-                  <a class='project-details' data-id='{{completed.id}}'>{{completed.title}}</a>
+                  <a href='/completed/{{completed.id}}'>{{completed.title}}</a>
                   <h4>{{completed.description}}</h4>
                   <div class='time-adjustment'>
-                    <p>Time Spent:</p>
+                    <p>Time Spent:{{completed.time_applied}}</p>
                     <div class='time-display'>
                       <p><span class='project-time' id="timerDisplay_{{completed.id}}"></span></p>
                     </div>
@@ -27,15 +26,15 @@
                     </div>
                   </div>
                 </div>
-                {{> modal}}
               {{/each}}
             {{else}}
-              <p>No completed projects found.</p>
+              <p>None completed yet.</p>
             {{/if}}
+            {{> modal}}
           </div>
           <div class='field'>
             <div class='control'>
-              <button class='button is-primary add-button add-project-button'>Add new Project</button>
+              <button class='button is-primary add-button add-project-button' data-page='completed' data-id='{{completed.id}}'>Add new Project</button>
             </div>
           </div>
           <div class='buttons is-centered mt-5'>
@@ -48,5 +47,6 @@
     </div>
   </div>
 </section>
-<script src="./js/completed.js"></script>
-<script src="./js/timeTrack.js"></script>
+
+{{!-- <script src="./js/completed.js"></script>
+<script src="./js/timeTrack.js"></script> --}}

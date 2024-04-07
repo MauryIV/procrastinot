@@ -4,7 +4,7 @@
       <div class='columns is-centered'>
         <div class='column is-half'>
           <h1 class='title'>log in</h1>
-          <form class="login-form">
+          <form class="form login-form">
             <div class='field'>
               <label class='label'>Email</label>
               <div class='control'>
@@ -12,20 +12,20 @@
               </div>
             </div>
             <div class='field'>
-              <label id="password-login" class='label'>Password</label>
+              <label class='label'>Password</label>
               <div class='control'>
-                <input class='input input-field' type='password' placeholder='Enter your password'>
+                <input id="password-login" class='input input-field' type='password' placeholder='Enter your password'>
               </div>
             </div>
             <div class='field'>
               <div class='control'>
-                <button class='button is-primary log-button'>Log In</button>
+                <button class='button is-primary log-button' type="submit">Log In</button>
               </div>
             </div>
           </form>
           <div class='buttons is-centered mt-5'>
             <a href='/create' class='button is-sucess account-button'>Create an Account</a>
-            <a href='#' class='button is-info about-button'>About Us</a>
+            <a href='/about' class='button is-info about-button'>About Us</a>
           </div>
         </div>
       </div>
@@ -33,5 +33,4 @@
   </div>
 </section>
 
-<script src="./js/auth.js"></script>
-
+<script src="./js/login.js"></script>

@@ -8,10 +8,10 @@
             {{#if todos.length}}
               {{#each todos as |todo|}}
                 <div class='todo-item'>
-                  <a class='project-details' data-id='{{todo.id}}'>{{todo.title}}</a>
+                  <a href='/todo/{{todo.id}}'>{{todo.title}}</a>
                   <h4>{{todo.description}}</h4>
                   <div class='time-adjustment'>
-                    <p>Time Spent:</p>
+                    <p>Time Spent:{{todo.time_applied}}</p>
                     <div class='time-display'>
                       <p><span class='project-time' id="timerDisplay_{{todo.id}}"></span></p>
                     </div>
@@ -26,15 +26,15 @@
                     </div>
                   </div>
                 </div>
-                {{> modal}}
               {{/each}}
             {{else}}
-              <p>No todos found.</p>
+              <p>No to-dos yet.</p>
             {{/if}}
+            {{> modal}}
           </div>
           <div class='field'>
             <div class='control'>
-              <button class='button is-primary add-button add-project-button'>Add new Project</button>
+              <button class='button is-primary add-button add-project-button' data-page='todo' data-id='{{todo.id}}'>Add new Project</button>
             </div>
           </div>
           <div class='buttons is-centered mt-5'>
@@ -47,5 +47,6 @@
     </div>
   </div>
 </section>
-<script src="./js/todo.js"></script>
-<script src="./js/timeTrack.js"></script>
+
+{{!-- <script src="./js/todo.js"></script>
+<script src="./js/timeTrack.js"></script> --}}
