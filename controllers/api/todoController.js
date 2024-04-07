@@ -1,6 +1,28 @@
 const router = require('express').Router();
-const { Todo } = require('../../models');
+const { Todo, Auth } = require('../../models');
 const withAuth = require('../../utils/auth');
+
+router.get('/:id', async (req, res) => {
+  try {
+    const todoData = await Todo.findByPk(req.params.id, {
+      include: [
+        {
+          model: Auth,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    if (todoData) {
+      const todo = todoData.get({ plain: true });
+      res.status(200).json(todo);
+    } else {
+      res.status(404).json({ message: 'Todo not found' });
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.post('/', withAuth, async (req, res) => {
   try {

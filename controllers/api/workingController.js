@@ -1,6 +1,28 @@
 const router = require('express').Router();
-const { Working } = require('../../models');
+const { Working, Auth } = require('../../models');
 const withAuth = require('../../utils/auth');
+
+router.get('/:id', async (req, res) => {
+  try {
+    const workingData = await Working.findByPk(req.params.id, {
+      include: [
+        {
+          model: Auth,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    if (workingData) {
+      const working = workingData.get({ plain: true });
+      res.status(200).json(working);
+    } else {
+      res.status(404).json({ message: 'Working not found' });
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.post('/', withAuth, async (req, res) => {
   try {
