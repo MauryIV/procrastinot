@@ -1,7 +1,4 @@
-let activePage = 'completed'
-
-
-const TimeManager = require('als-time-manager');
+// const TimeManager = require('als-time-manager');
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');

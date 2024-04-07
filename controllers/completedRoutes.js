@@ -1,4 +1,3 @@
-// Use for GET routes
 const router = require('express').Router();
 const { Completed, Auth } = require('../models');
 const withAuth = require('../utils/auth');
@@ -6,18 +5,20 @@ const TimeManager = require('als-time-manager');
 
 const timeManager = new TimeManager();
 
-router.get('/', async (req, res) => {
-try {
-  const completedData = await Completed.findAll({
-  });
-  const completeds = completedData.map((completed) => completed.get({ plain: true }));
-  res.render('completed', {
-    completeds,
-    logged_in: req.session.logged_in,
-  });
-} catch (err) {
-  res.status(500).json(err);
-}
+router.get('/', withAuth, async (req, res) => {
+  try {
+    const authData = await Auth.findByPk(req.session.auth_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Completed }],
+    });
+    const auth = authData.get({ plain: true });
+    res.render('completed', {
+      ...auth,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get('/:id', async (req, res) => {
@@ -26,18 +27,17 @@ router.get('/:id', async (req, res) => {
       include: [
         {
           model: Auth,
-          attributes: [
-            'id',
-            'name',
-            'email',
-          ],
+          attributes: ['name'],
         },
       ],
     });
     const completed = completedData.get({ plain: true });
-    res.render('completed', { 
-      completed, 
-      logged_in: req.session.logged_in 
+    const isCreator = (completed.auth_id === req.session.auth_id);
+    res.render('project', {
+      ...completed,
+      logged_in: req.session.logged_in,
+      isCreator,
+      model: 'completed'
     });
   } catch (err) {
     res.status(500).json(err);
