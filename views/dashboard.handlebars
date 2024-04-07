@@ -7,18 +7,12 @@
 </section>
 <section class="section custom-boxes">
   <div class="container">
-    <div class="custom-box working-on">
-      <a href="/working" class="box">
-        <p class="title">Working On</p>
-        <!-- Placeholder for working on -->
-        <div class="task">
-          <p class="task-title">{{this.title}}</p>
-          <p class="task-description">{{this.description}}</p>
-        </div>
-      </a>
-    </div>
     <div class="custom-box to-do">
+      {{#if logged_in}}
       <a href="/todo" class="box">
+      {{else}}
+      <a href="/auth" class="box">
+      {{/if}}
         <p class="title">To-Do</p>
         <!-- Placeholder for to-do -->
         <div class="task">
@@ -27,8 +21,26 @@
         </div>
       </a>
     </div>
+    <div class="custom-box working-on">
+      {{#if logged_in}}
+      <a href="/working" class="box">
+      {{else}}
+      <a href="/auth" class="box">
+      {{/if}}
+        <p class="title">Working On</p>
+        <!-- Placeholder for working on -->
+        <div class="task">
+          <p class="task-title">{{this.title}}</p>
+          <p class="task-description">{{this.description}}</p>
+        </div>
+      </a>
+    </div>
     <div class="custom-box completed">
+      {{#if logged_in}}
       <a href="/completed" class="box">
+      {{else}}
+      <a href="/auth" class="box">
+      {{/if}}
         <p class="title">Completed</p>
         <!-- Placeholder for tasks -->
         <div class="task">
@@ -47,4 +59,4 @@
 </section>
 
 
-<script src="/js/timeTrack.js"></script>
+{{!-- <script src="/js/timeTrack.js"></script> --}}
