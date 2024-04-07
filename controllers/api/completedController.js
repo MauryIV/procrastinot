@@ -1,6 +1,28 @@
 const router = require('express').Router();
-const { Completed } = require('../../models');
+const { Completed, Auth } = require('../../models');
 const withAuth = require('../../utils/auth');
+
+router.get('/:id', async (req, res) => {
+  try {
+    const completedData = await Completed.findByPk(req.params.id, {
+      include: [
+        {
+          model: Auth,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    if (completedData) {
+      const completed = completedData.get({ plain: true });
+      res.status(200).json(completed);
+    } else {
+      res.status(404).json({ message: 'Completed not found' });
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.post('/', withAuth, async (req, res) => {
   try {

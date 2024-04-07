@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const activeModel = event.currentTarget.getAttribute("data-model");
       const projectId = event.currentTarget.getAttribute("data-id");
 
-      const getData = await fetch(`/${activeModel}/${projectId}`);
+      const getData = await fetch(`/api/${activeModel}/${projectId}`);
       const getProjectData = await getData.json();
 
       const postData = await fetch(`/api/${newModel}`, {
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const activeModel = event.currentTarget.getAttribute("data-model");
       const projectId = event.currentTarget.getAttribute("data-id");
 
-      const getData = await fetch(`/${activeModel}/${projectId}`);
+      const getData = await fetch(`/api/${activeModel}/${projectId}`);
       const getProjectData = await getData.json();
 
       const postData = await fetch(`/api/${newModel}`, {
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const activeModel = event.currentTarget.getAttribute("data-model");
       const projectId = event.currentTarget.getAttribute("data-id");
 
-      const getData = await fetch(`/${activeModel}/${projectId}`);
+      const getData = await fetch(`/api/${activeModel}/${projectId}`);
       const getProjectData = await getData.json();
 
       const postData = await fetch(`/api/${newModel}`, {
