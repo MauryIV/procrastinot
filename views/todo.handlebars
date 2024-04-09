@@ -8,21 +8,21 @@
             {{#if todos.length}}
               {{#each todos as |todo|}}
                 <div class='todo-item'>
-                  <a href='/todo/{{todo.id}}'>{{todo.title}}</a>
-                  <h4>{{todo.description}}</h4>
+                  <div class="project-details">
+                    <a href='/todo/{{todo.id}}'>{{todo.title}}</a>
+                    <h4>{{todo.description}}</h4>
+                  </div>
                   <div class='time-adjustment'>
-                    <p>Time Spent:{{todo.time_applied}}</p>
                     <div class='time-display'>
+                      <p>Time Spent: {{todo.time_applied}}</p>
                       <p><span class='project-time' id="timerDisplay_{{todo.id}}"></span></p>
                     </div>
-                    <button id='startButton_{{todo.id}}'>Start</button>
-                    <button id='stopButton_{{todo.id}}'>Stop</button>
-                    <button id="resetButton_{{todo.id}}">Reset</button>
                     <div class='control-buttons'>
+                      <button id='startButton_{{todo.id}}'>Start</button>
+                      <button id='stopButton_{{todo.id}}'>Stop</button>
+                      <button id="resetButton_{{todo.id}}">Reset</button>
                       <i class='fas fa-arrow-up increase-hour'></i>
                       <i class='fas fa-arrow-down decrease-hour'></i>
-                      <div class='delete-button'>                 
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -48,5 +48,5 @@
   </div>
 </section>
 
-{{!-- <script src="./js/todo.js"></script>
-<script src="./js/timeTrack.js"></script> --}}
+<script src="./js/todo.js"></script>
+<script src="./js/timeTrack.js"></script>

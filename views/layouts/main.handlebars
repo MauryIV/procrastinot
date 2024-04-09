@@ -1,33 +1,80 @@
 <html lang='en'>
 <head>
     <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>procrastinot</title>
-  <!-- Link to Bulma CSS -->
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css'>
-  <!-- Google Fonts -->
-  <link href='https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap' rel='stylesheet'>
-<link rel='stylesheet' href='../css/style.css'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>procrastinot</title>
+    <!-- Link to Bulma CSS -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css'>
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap' rel='stylesheet'>
+    <link rel='stylesheet' href='../css/style.css'>
+    <style>
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50px;
+            animation: move;
+            animation-iteration-count: infinite;
+        }
+        .type-1 {
+            width: 1px;
+            height: 1px;
+        }
+        .type-2 {
+            width: 2px;
+            height: 2px;
+        }
+        .type-3 {
+            width: 3px;
+            height: 3px;
+        }
+        @keyframes move {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-1000px); }
+        }
+    </style>
 </head>
 
 <body>
-  <main>
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>procrastinot</h1>
-      <nav>
-        {{#if logged_in}}
-        <a href="/dashboard">Dashboard</a>
-        <a href="/profile">Profile</a>
-        <a id="logout" href="/">Logout</a>
-        {{else}}
-        <a href="/auth">Login</a>
-        {{/if}}
-      </nav>
-    </header>
-    {{{body}}}
-  </main>
-  {{#if logged_in}}
+    <main>
+        <header class="display-flex justify-space-between align-center p-2">
+            <h1>procrastinot</h1>
+            <nav>
+                {{#if logged_in}}
+                <a href="/dashboard">Dashboard</a>
+                <a href="/profile">Profile</a>
+                <a id="logout" href="/">Logout</a>
+                {{else}}
+                <a href="/auth">Login</a>
+                {{/if}}
+            </nav>
+        </header>
+        {{{body}}}
+    </main>
+
+    <script>
+        function createStars(type, quantity) {
+            for (let i = 0; i < quantity; i++) {
+                var star = document.createElement('div');
+                star.classList.add('star', `type-${type}`);
+                star.style.left = `${randomNumber(1, 99)}%`;
+                star.style.bottom = `${randomNumber(1, 99)}%`;
+                star.style.animationDuration = `${randomNumber(50, 200)}s`;
+                document.body.appendChild(star);
+            }
+        }
+
+        function randomNumber(min, max) {
+            return Math.floor(Math.random() * max) + min;
+        }
+        
+        createStars(1, 100);
+        createStars(2, 85);
+        createStars(3, 70);
+    </script>
+
+    {{#if logged_in}}
     <script src="./../js/logout.js"></script>
-  {{/if}}
+    {{/if}}
 </body>
 </html>

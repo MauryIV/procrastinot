@@ -8,21 +8,21 @@
             {{#if completeds.length}}
               {{#each completeds as |completed|}}
                 <div class='completed-item'>
-                  <a href='/completed/{{completed.id}}'>{{completed.title}}</a>
-                  <h4>{{completed.description}}</h4>
+                  <div class="project-details">
+                    <a href='/completed/{{completed.id}}'>{{completed.title}}</a>
+                    <h4>{{completed.description}}</h4>
+                  </div>
                   <div class='time-adjustment'>
-                    <p>Time Spent:{{completed.time_applied}}</p>
                     <div class='time-display'>
+                      <p>Time Spent: {{completed.time_applied}}</p>
                       <p><span class='project-time' id="timerDisplay_{{completed.id}}"></span></p>
                     </div>
-                    <button id='startButton_{{completed.id}}'>Start</button>
-                    <button id='stopButton_{{completed.id}}'>Stop</button>
-                    <button id="resetButton_{{completed.id}}">Reset</button>
                     <div class='control-buttons'>
+                      <button id='startButton_{{completed.id}}'>Start</button>
+                      <button id='stopButton_{{completed.id}}'>Stop</button>
+                      <button id="resetButton_{{completed.id}}">Reset</button>
                       <i class='fas fa-arrow-up increase-hour'></i>
                       <i class='fas fa-arrow-down decrease-hour'></i>
-                      <div class='delete-button'>                 
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -39,8 +39,8 @@
           </div>
           <div class='buttons is-centered mt-5'>
             <a href='/dashboard' class='button is-success dashboard-button'>Dashboard</a>
-            <a href='/todo' class='button is-info todo-button'>To-Do</a>
             <a href='/working' class='button is-info working-button'>Working</a>
+            <a href='/todo' class='button is-info completed-button'>To-Do</a>
           </div>
         </div>
       </div>

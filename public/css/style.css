@@ -3,7 +3,7 @@
   background-size: 100px 100px;
   background-repeat: no-repeat;
   background-position: top left;
-  background-color:#32363E !important;
+  background-color: #3e475a !important;
   font-family: "Space Mono", monospace;
   font-weight: 700;
   font-style: normal;
@@ -21,7 +21,7 @@
 }
 
 .custom-button {
-  background-color:#B558A1 !important;
+  background-color:#d079bd !important;
   color:white;
   margin-top: 50px;
 }
@@ -55,81 +55,76 @@
 Page */
 
 .create {
-  font-size: 70px;
+  font-size: 60px;
   margin-bottom: 20px;
 }
 
-.started-button {
+#started-button {
   background-color: #B558A1 !important;
   color: white;  
-  margin-top: 55px;
+  margin-top: 25px !important;
+}
+
+.label {
+  color: #B6B4AE !important;
 }
 
 /* DashBoard */
 
 body {
-  background-color:#32363E !important;
+  background-color: #264076 !important;
 }
 
 .custom-title {
   font-size: 100px;
+  margin-top: 0;
 }
 
 .custom-boxes {
   position: relative;
-  padding: 20px;
-  background-color:#32363E !important;
-  
+  padding: 50px;
+  background-color: #273756 !important;
+  margin-top: 2rem;
 }
+
 .custom-box {
   position: absolute;
-  padding: 10px; 
-  background-color:#32363E !important;
+  padding: 5px; 
+  background-color: #32363E !important;
 }
 
 .custom-box.working-on {
-  background-color:#32363E !important;
-  top: 10px;
-  left: 400px;
-
+  background-color: #32363E !important;
+  top: 200px;
+  left: 550px;
 }
 
 .custom-box.to-do {
-  background-color:#32363E !important;
-  top: 180px;
-  right: 200px;
+  background-color: #32363E !important;
+  top: 550px;
+  right: 450px;
 }
-
 
 .custom-box.completed {
-  background-color:#32363E !important;
-  top: 200px;
-} 
-
-
-.custom-box.total-time-spent {
-  top: 350px;
-  right: 550px;
+  background-color: #32363E !important;
+  top: 400px;
+  left: 400px;
 }
 
-.working-on p {
-  font-size: 70px !important;}
-
-.to-do p {
-  font-size: 70px !important; 
+.custom-box .button {
+  padding: 20px 30px; 
+  font-size: 30px;
 }
 
+.working-on p,
+.to-do p,
 .completed p {
-  font-size: 70px !important; 
+  font-size: 50px !important;
 }
 
-.total-time-spent p {
-  font-size: 30px !important; 
-}
-
-.custom-box.working-on *{
+.custom-box.working-on * {
   background-color: #64d4e7 !important;
- }
+}
 
 .custom-box.to-do * {
   background-color: #c432e9 !important;
@@ -141,5 +136,92 @@ body {
 
 .custom-box.total-time-spent * {
   background-color: #ec4577 !important;
+}
+
+
+
+
+
+
+
+/* Time Display */
+
+
+.time-adjustment {
+  align-items: center;
+  color:#6cbe65;
+  margin-top: 15px;
+}
+
+.time-adjustment .time-display {
+  margin-right: 100px;
+}
+
+.control-buttons {
+  margin-left: 325px; 
+  margin-bottom:30px;
+  margin-top: 30px;
+
+}
+
+
+@media screen and (max-width: 768px) {
+  .custom-boxes {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .custom-box.to-do {
+    right: auto;
+    margin-top: 20px;
+  }
+
+  .custom-box.completed {
+    left: auto;
+    margin-top: 20px;
+  }
+  
+  .custom-box.working-on{
+    left: auto;
+    margin-top:20px;
+  }
+}
+
+
+
+
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at bottom, #013155 0%, #01162E 100%);
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50px;
+  animation: move;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.type-1 {
+  width: 1px;
+  height: 1px;
+}
+
+.type-2 {
+  width: 2px;
+  height: 2px;
+}
+
+.type-3 {
+  width: 3px;
+  height: 3px;
+}
+
+@keyframes move {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100vh); }
 }
 
