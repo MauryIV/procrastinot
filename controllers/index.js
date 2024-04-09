@@ -1,18 +1,18 @@
-const router = require("express").Router();
+// Importing the required modules.
+const router = require("express").Router(); // Express router
 
-const apiRoutes = require("./api");
-const landingRoutes = require("./landingRoutes");
-const todoRoutes = require("./todoRoutes");
-const workingRoutes = require("./workingRoutes");
-const completedRoutes = require("./completedRoutes");
-// const TimeManager = require('als-time-manager');
+// Importing route modules for different sections
+const apiRoutes = require("./api"); 
+const landingRoutes = require("./landingRoutes"); 
+const todoRoutes = require("./todoRoutes"); 
+const workingRoutes = require("./workingRoutes"); 
+const completedRoutes = require("./completedRoutes"); 
 
-// const timeManager = new TimeManager();
+// Registering routes for each section of the application
+router.use("/api", apiRoutes); 
+router.use("/", landingRoutes); 
+router.use("/todo", todoRoutes); 
+router.use("/working", workingRoutes); 
+router.use("/completed", completedRoutes); 
 
-router.use("/api", apiRoutes);
-router.use("/", landingRoutes);
-router.use("/todo", todoRoutes);
-router.use("/working", workingRoutes);
-router.use("/completed", completedRoutes);
-
-module.exports = router;
+module.exports = router; // Exporting the router for use in the application.

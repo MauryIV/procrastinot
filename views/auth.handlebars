@@ -1,28 +1,35 @@
+<!-- Hero section for the login page -->
 <section class='hero is-fullheight is-primary'>
   <div class='hero-body'>
     <div class='container has-text-centered'>
       <div class='columns is-centered'>
         <div class='column is-half'>
+          <!-- Title for the login section -->
           <h1 class='title'>log in</h1>
+          <!-- Login form -->
           <form class="form login-form">
+            <!-- Email input -->
             <div class='field'>
               <label class='label'>Email</label>
               <div class='control'>
                 <input id="email-login" class='input input-field' type='text' placeholder='Enter your email'>
               </div>
             </div>
+            <!-- Password input -->
             <div class='field'>
               <label class='label'>Password</label>
               <div class='control'>
                 <input id="password-login" class='input input-field' type='password' placeholder='Enter your password'>
               </div>
             </div>
+            <!-- Login button -->
             <div class='field'>
               <div class='control'>
                 <button class='button is-primary log-button' type="submit">Log In</button>
               </div>
             </div>
           </form>
+          <!-- Buttons for account creation and about page -->
           <div class='buttons is-centered mt-5'>
             <a href='/create' class='button is-sucess account-button'>Create an Account</a>
             <a href='/about' class='button is-info about-button'>About Us</a>
@@ -32,5 +39,5 @@
     </div>
   </div>
 </section>
-
+<!-- for handling login functionality links to login.js -->
 <script src="./js/login.js"></script>

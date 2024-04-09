@@ -1,12 +1,11 @@
+// Sets up routes for handling working-related things.
 const router = require('express').Router();
 const { Working, Auth } = require('../models');
 const withAuth = require('../utils/auth');
-const TimeManager = require('als-time-manager');
-
-const timeManager = new TimeManager();
 
 router.get('/', withAuth, async (req, res) => {
   try {
+    // Fetches auth user's working data from the database.
     const authData = await Auth.findByPk(req.session.auth_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Working }],
@@ -23,6 +22,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
+    // Fetches working data by ID from the database.
     const workingData = await Working.findByPk(req.params.id, {
       include: [
         {

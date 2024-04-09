@@ -1,12 +1,11 @@
+// Sets up routes for handling todo-related things.
 const router = require('express').Router();
 const { Todo, Auth } = require('../models');
 const withAuth = require('../utils/auth');
-const TimeManager = require('als-time-manager');
-
-const timeManager = new TimeManager();
 
 router.get('/', withAuth, async (req, res) => {
   try {
+    // Fetches authenticated user's todo data from the database
     const authData = await Auth.findByPk(req.session.auth_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Todo }],
@@ -23,6 +22,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
+    // Fetches todo data by ID from the database
     const todoData = await Todo.findByPk(req.params.id, {
       include: [
         {

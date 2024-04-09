@@ -1,3 +1,4 @@
+// Defines the Todo model
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -5,6 +6,7 @@ class Todo extends Model {}
 
 Todo.init(
   {
+    // defines attributes for Todo model
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -35,6 +37,7 @@ Todo.init(
     },
   },
   {
+    // shows options for Todo model
     sequelize,
     timestamps: false,
     freezeTableName: true,

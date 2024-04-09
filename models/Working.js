@@ -1,13 +1,12 @@
+// Defines the Working model
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-// const TimeManager = require('als-time-manager');
-
-// const timeManager = new TimeManager();
 
 class Working extends Model {}
 
 Working.init(
   {
+    // Defines attributes for Working model
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -38,6 +37,7 @@ Working.init(
     },
   },
   {
+    // Defines options for Working model
     sequelize,
     timestamps: false,
     freezeTableName: true,

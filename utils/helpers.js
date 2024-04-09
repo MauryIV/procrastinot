@@ -1,9 +1,6 @@
-// const TimeManager = require('als-time-manager');
-
-// const timeManager = new TimeManager();
-
+// Exporting a function to format a date into a localized date string
 module.exports = {
   format_date: (date) => {
-    return date.toLocaleDateString();
+    return date.toLocaleDateString(); // converts to string.
   },
 }

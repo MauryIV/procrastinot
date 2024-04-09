@@ -1,11 +1,15 @@
+<!-- Section for displaying project details and options -->
 <section class='hero is-fullheight is-primary'>
   <div class='hero-body'>
     <div class='container has-text-centered'>
       <div class='columns is-centered'>
         <div class='column is-full'>
+          <!-- Title section -->
           <h1>Project Details</h1>
           <h2 id="title">Title: {{title}}</h2>
+          <!-- Description section -->
           <p id="description">Description: {{description}}</p>
+          <!-- Footer section with project action buttons -->
           <footer>
             <button id="todo-button" class="button move-buttons" data-model="{{model}}" data-id="{{id}}">Move to To Do</button>
             <button id="working-button" class="button move-buttons" data-model="{{model}}" data-id="{{id}}">Move to Working On</button>
@@ -19,4 +23,5 @@
   </div>
 </section>
 
+<!-- Script for handling project moving -->
 <script src="./../js/moveProject.js"></script>

@@ -1,11 +1,10 @@
+// Defining the Auth model for user auth.
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
-// const TimeManager = require('als-time-manager');
-
-// const timeManager = new TimeManager();
 
 class Auth extends Model {
+  // to compare hashed passwords for user login auth.
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
@@ -13,6 +12,7 @@ class Auth extends Model {
 
 Auth.init(
   {
+    // Model attributes
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -40,6 +40,7 @@ Auth.init(
     },
   },
   {
+    // Model options and hooks for password hashing.
     hooks: {
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);

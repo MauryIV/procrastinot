@@ -1,16 +1,24 @@
+<!-- Section for displaying user profile information and options -->
 <section class='hero is-fullheight is-primary'>
   <div class='hero-body'>
     <div class='container has-text-centered'>
       <div class='columns is-centered'>
         <div class='column is-full'>
+          <!-- Header with user's name -->
           <header>
             <h1 class='title'>Hello, {{name}}</h1>
           </header>
+          <!-- Main content section -->
           <section>
-            <p>We hope that you have been enjoying procrastinot. We are always striving for improvement and would love your suggestions.</p><a class='has-text-info' href='mailto:mauryhughesiv@gmail.com'>Please feel free to send us an email.</a>
+            <p>We hope that you have been enjoying procrastinot. We are always striving for improvement and would love your suggestions.</p>
+            <!-- Link to send email for suggestions -->
+            <a class='has-text-info' href='mailto:mauryhughesiv@gmail.com'>Please feel free to send us an email.</a>
           </section>
+          <!-- Footer section -->
           <footer>
-            <p>We also understand that sometimes you want to explore other options. So if you want to delete your profile, we understand. Hope that you make it back sometime though!</p><a class='has-text-danger' id='delete-profile' data-id="{{id}}">Delete profile.</a>
+            <p>We also understand that sometimes you want to explore other options. So if you want to delete your profile, we understand. Hope that you make it back sometime though!</p>
+            <!-- Link to delete user profile -->
+            <a class='has-text-danger' id='delete-profile' data-id="{{id}}">Delete profile.</a>
           </footer>
         </div>
       </div>
@@ -18,4 +26,5 @@
   </div>
 </section>
 
+<!-- Script for deleting user profile -->
 <script src="./../js/profileDelete.js"></script>

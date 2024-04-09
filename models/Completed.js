@@ -1,13 +1,12 @@
+// the Completed model for managing completed tasks or projects
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-// const TimeManager = require('als-time-manager');
-
-// const timeManager = new TimeManager();
 
 class Completed extends Model {}
 
 Completed.init(
   {
+    // Defines model attributes.
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -38,6 +37,7 @@ Completed.init(
     },
   },
   {
+    // Define model options
     sequelize,
     timestamps: false,
     freezeTableName: true,

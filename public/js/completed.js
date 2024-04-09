@@ -1,4 +1,4 @@
-// const TimeManager = require('als-time-manager');
+// imports all neccessary packages and tools.
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
@@ -9,13 +9,12 @@ import ReactDOM from 'react-dom';
 
 function CompletedProjects() {
   const [projects, setProjects] = useState([
-    // Sample project data (replace with actual project data)
     { id: 1, title: 'Project 1', deadline: new Date('2024-04-10'), status: 'on time', timeSpent: 0 },
     { id: 2, title: 'Project 2', deadline: new Date('2024-03-20'), status: 'late', timeSpent: 0 },
     { id: 3, title: 'Project 3', deadline: new Date('2024-04-25'), status: 'in good standing', timeSpent: 0 }
   ]);
 
-  // Function to update project status based on deadline
+  // Function that updates the project status depending on deadline.
   const updateProjectStatus = () => {
     const currentDate = new Date();
     const updatedProjects = projects.map(project => {
@@ -72,7 +71,7 @@ function CompletedProjects() {
   );
 }
 
-// Render the CompletedProjects component
+// Renders the CompletedProjects component
 ReactDOM.render(
   <CompletedProjects />,
   document.getElementById('completed-projects-container')
@@ -84,7 +83,6 @@ const app = express();
 
 // middleware
 app.use(bodyParser.json());
-// other middleware?
 
 
 sequelize.authenticate()
@@ -95,16 +93,15 @@ sequelize.authenticate()
     console.error('Database connection failed:', err);
 });
 
-// Route Def
+// defined route.
 app.use('/api', routes);
 
-// error for middleware
 app.use((err, req, res, next) => {
     console.error(err);
     res.status(500).json({ error: 'Internal Server Error' });
   });
 
-// starting the server
+// starts the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log('Server is running on port ${PORT}');

@@ -1,10 +1,7 @@
-// const TimeManager = require('als-time-manager');
-
-// const timeManager = new TimeManager();
-
+// Middleware function to check if user is authenticated
 const withAuth = (req, res, next) => {
   if (!req.session.logged_in) {
-    res.redirect('/login');
+    res.redirect('/login'); 
   } else {
     next();
   }

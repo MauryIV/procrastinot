@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Event listener for add project modal
+  // Event listener for add project modal.
   const addProjectButton = document.querySelector(".add-project-button");
   const projectModal = document.getElementById("projectModal");
   const newProjectButton = document.querySelector(".add-new-project-button");
@@ -8,13 +8,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeModalButtons = document.querySelectorAll(".close-modal-button");
   let activePage;
 
-  // Add project button click event listener
+  // Add project button click event listener.
   addProjectButton.addEventListener("click", (event) => {
     projectModal.classList.add("is-active");
     activePage = event.target.getAttribute("data-page");
   });
 
-  // Add new project event listener
+  // Add new project event listener.
   newProjectButton.addEventListener('click', async function(event) {
     event.preventDefault();
     const title = titleInput.value.trim();
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Close modal button click event listener
+  // Close modal button click event listener.
   closeModalButtons.forEach((button) => {
     button.addEventListener("click", () => {
       projectModal.classList.remove("is-active");

@@ -1,3 +1,4 @@
+<!-- Modal markup for adding a new project -->
 <div class="modal" id="projectModal">
   <div class="modal-background"></div>
   <div class="modal-content">
@@ -6,9 +7,11 @@
         <p class="modal-card-title">Add Project</p>
         <button class="delete close-modal-button" aria-label="close"></button>
       </header>
+      <!-- Section for entering project details -->
       <section class="modal-card-body">
         <div id="newProjectSection">
           <p>Create a new project:</p>
+          <!-- Input field for project title -->
           <div class="field">
             <label class="label">Title</label>
             <div class="control">
@@ -20,6 +23,7 @@
               />
             </div>
           </div>
+          <!-- Textarea for project description -->
           <div class="field">
             <label class="label">Description</label>
             <div class="control">
@@ -32,6 +36,7 @@
           </div>
         </div>
       </section>
+      <!-- Footer with buttons to add a new project and close the modal -->
       <footer class="modal-card-foot">
         <button class="button is-success add-new-project-button">Add New Project</button>
         <button class="button is-danger close-modal-button">Close</button>
@@ -40,4 +45,5 @@
   </div>
 </div>
 
+<!-- Script for handling modal function. -->
 <script src="./js/modal.js"></script>
