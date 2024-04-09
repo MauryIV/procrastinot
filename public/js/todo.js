@@ -1,14 +1,15 @@
-const TimeManager = require('als-time-manager');
+// const TimeManager = require('als-time-manager');
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const { sequelize } = require('./models');
 const routes = require('./routes');
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+const React = require('react');
+const ReactDOM = require('react-dom');
+// const { $setTimeout, $setInterval, timeToMs } = TimeManager;
 
 function CompletedProjects() {
-  const [projects, setProjects] = useState([
+  const [projects, setProjects] = React.useState([
     // Sample project data (replace with actual project data)
     { id: 1, title: 'Project 1', deadline: new Date('2024-04-10'), status: 'on time', timeSpent: 0 },
     { id: 2, title: 'Project 2', deadline: new Date('2024-03-20'), status: 'late', timeSpent: 0 },
@@ -31,7 +32,7 @@ function CompletedProjects() {
   };
 
   // Timer
-  useEffect(() => {
+  React.useEffect(() => {
     const intervalId = setInterval(() => {
       setProjects(prevProjects => {
         return prevProjects.map(project => {
@@ -52,32 +53,35 @@ function CompletedProjects() {
     return `${hours}:${minutes < 10 ? '0' : ''}${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
   };
 
-  return (
-    <div>
-      <h2>Completed Projects</h2>
-      <p>Total Time: 00:00 Hour(s)</p>
-      <ul>
-        {projects.map(project => (
-          <li key={project.id}>
-            <span>{project.title}</span>
-            <span>Status: {project.status}</span>
-            <span>Time Spent: {formatTime(project.timeSpent)}</span>
-            <button>Edit</button>
-            <button>Start</button>
-            <button>Complete</button>
-          </li>
-        ))}
-      </ul>
-    </div>
+  return React.createElement(
+    'div',
+    null,
+    React.createElement('h2', null, 'Completed Projects'),
+    React.createElement('p', null, 'Total Time: 00:00 Hour(s)'),
+    React.createElement(
+      'ul',
+      null,
+      projects.map(project =>
+        React.createElement(
+          'li',
+          { key: project.id },
+          React.createElement('span', null, project.title),
+          React.createElement('span', null, 'Status: ' + project.status),
+          React.createElement('span', null, 'Time Spent: ' + formatTime(project.timeSpent)),
+          React.createElement('button', null, 'Edit'),
+          React.createElement('button', null, 'Start'),
+          React.createElement('button', null, 'Complete')
+        )
+      )
+    )
   );
 }
 
 // Render the CompletedProjects component
 ReactDOM.render(
-  <CompletedProjects />,
+  React.createElement(CompletedProjects, null),
   document.getElementById('completed-projects-container')
 );
-
 
 dotenv.config();
 const app = express();
@@ -88,24 +92,27 @@ app.use(bodyParser.json());
 
 
 sequelize.authenticate()
-.then(() => {
+  .then(() => {
     console.log('Database connection successful')
-})
-.catch(err => {
+  })
+  .catch(err => {
     console.error('Database connection failed:', err);
-});
+  });
 
 // Route Def
 app.use('/api', routes);
 
 // error for middleware
 app.use((err, req, res, next) => {
-    console.error(err);
-    res.status(500).json({ error: 'Internal Server Error' });
-  });
+  console.error(err);
+  res.status(500).json({ error: 'Internal Server Error' });
+});
 
 // starting the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log('Server is running on port ${PORT}');
+  console.log('Server is running on port ${PORT}');
 });
+
+
+// const timeManager = new TimeManager();

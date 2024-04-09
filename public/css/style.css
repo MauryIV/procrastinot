@@ -143,3 +143,28 @@ body {
   background-color: #ec4577 !important;
 }
 
+#timerDisplay {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.button-container button {
+  background-color: #c432e9;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-container button:hover {
+  background-color: #a029c3;
+}
