@@ -21,7 +21,7 @@
 }
 
 .custom-button {
-  background-color:#B558A1 !important;
+  background-color:#d079bd !important;
   color:white;
   margin-top: 50px;
 }
@@ -55,86 +55,21 @@
 Page */
 
 .create {
-  font-size: 70px;
+  font-size: 60px;
   margin-bottom: 20px;
 }
 
-.started-button {
+#started-button {
   background-color: #B558A1 !important;
   color: white;  
-  margin-top: 55px;
+  margin-top: 25px !important;
+}
+
+.label {
+  color: #B6B4AE !important;
 }
 
 /* DashBoard */
-
-/* body {
-  background-color:#264076 !important;
-}
-
-.custom-title {
-  font-size: 100px;
-  margin-top: 0;
-}
-
-.custom-boxes {
-  position: relative;
-  padding: 50px;
-  background-color:#273756 !important;
-  margin-top: 2rem;
-}
-.custom-box {
-  position: absolute;
-  padding: 10px; 
-  background-color:#32363E !important;
-}
-
-.custom-box.working-on {
-  background-color:#32363E !important;
-  top: 200px;
-  left: 600px;
-
-}
-
-.custom-box.to-do {
-  background-color:#32363E !important;
-  top: 450px;
-  right: 450px;
-}
-
-
-.custom-box.completed {
-  background-color:#32363E !important;
-  top: 350px;
-  left:400px;
-} 
-
-.working-on p {
-  font-size: 50px !important;}
-
-.to-do p {
-  font-size: 50px !important; 
-}
-
-.completed p {
-  font-size: 50px !important; 
-}
-
-.custom-box.working-on *{
-  background-color: #64d4e7 !important;
- }
-
-.custom-box.to-do * {
-  background-color: #c432e9 !important;
-}
-
-.custom-box.completed * {
-  background-color: #6cbe65 !important;
-}
-
-.custom-box.total-time-spent * {
-  background-color: #ec4577 !important;
-} */
-
 
 body {
   background-color: #264076 !important;
