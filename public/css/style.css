@@ -3,7 +3,7 @@
   background-size: 100px 100px;
   background-repeat: no-repeat;
   background-position: top left;
-  background-color: #32363E !important;
+  background-color: #3e475a !important;
   font-family: "Space Mono", monospace;
   font-weight: 700;
   font-style: normal;
@@ -178,3 +178,42 @@ body {
     margin-top:20px;
   }
 }
+
+
+
+
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at bottom, #013155 0%, #01162E 100%);
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50px;
+  animation: move;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.type-1 {
+  width: 1px;
+  height: 1px;
+}
+
+.type-2 {
+  width: 2px;
+  height: 2px;
+}
+
+.type-3 {
+  width: 3px;
+  height: 3px;
+}
+
+@keyframes move {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100vh); }
+}
+
