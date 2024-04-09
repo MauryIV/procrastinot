@@ -1,4 +1,4 @@
-<section class="hero is-primary">
+{{!-- <section class="hero is-primary">
   <div class="hero-body">
     <div class="container">
       <h2 class="title has-text-centered custom-title">Projects</h2>
@@ -48,7 +48,44 @@
     </div>
     </div>
   </div>
-</section>
+</section> --}}
 
 
 {{!-- <script src="/js/timeTrack.js"></script> --}}
+
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title has-text-centered custom-title">Projects</h2>
+      <div class="buttons is-centered">
+        <div class="custom-box to-do">
+          {{#if logged_in}}
+          <a href="/todo" class="button is-primary">
+          {{else}}
+          <a href="/auth" class="button is-primary">
+          {{/if}}
+            To-Do
+          </a>
+        </div>
+        <div class="custom-box working-on">
+          {{#if logged_in}}
+          <a href="/working" class="button is-primary">
+          {{else}}
+          <a href="/auth" class="button is-primary">
+          {{/if}}
+            Working On
+          </a>
+        </div>
+        <div class="custom-box completed">
+          {{#if logged_in}}
+          <a href="/completed" class="button is-primary">
+          {{else}}
+          <a href="/auth" class="button is-primary">
+          {{/if}}
+            Completed
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
