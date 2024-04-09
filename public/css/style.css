@@ -3,7 +3,7 @@
   background-size: 100px 100px;
   background-repeat: no-repeat;
   background-position: top left;
-  background-color:#32363E !important;
+  background-color: #32363E !important;
   font-family: "Space Mono", monospace;
   font-weight: 700;
   font-style: normal;
@@ -142,4 +142,27 @@ body {
 .custom-box.total-time-spent * {
   background-color: #ec4577 !important;
 }
+
+
+
+/* Time Display */
+
+
+.time-adjustment {
+  align-items: center;
+  color:#6cbe65;
+  margin-top: 15px;
+}
+
+.time-adjustment .time-display {
+  margin-right: 100px;
+}
+
+.control-buttons {
+  margin-left: 325px; 
+  margin-bottom:30px;
+  margin-top: 30px;
+
+}
+
 
