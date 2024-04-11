@@ -5,9 +5,6 @@ const landingRoutes = require("./landingRoutes");
 const todoRoutes = require("./todoRoutes");
 const workingRoutes = require("./workingRoutes");
 const completedRoutes = require("./completedRoutes");
-// const TimeManager = require('als-time-manager');
-
-// const timeManager = new TimeManager();
 
 router.use("/api", apiRoutes);
 router.use("/", landingRoutes);

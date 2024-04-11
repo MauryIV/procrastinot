@@ -1,9 +1,6 @@
 const router = require('express').Router();
 const { Completed, Auth } = require('../models');
 const withAuth = require('../utils/auth');
-const TimeManager = require('als-time-manager');
-
-const timeManager = new TimeManager();
 
 router.get('/', withAuth, async (req, res) => {
   try {
@@ -21,7 +18,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
   try {
     const completedData = await Completed.findByPk(req.params.id, {
       include: [

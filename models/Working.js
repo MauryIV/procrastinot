@@ -1,8 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-// const TimeManager = require('als-time-manager');
-
-// const timeManager = new TimeManager();
 
 class Working extends Model {}
 
@@ -23,6 +20,7 @@ Working.init(
     },
     time_applied: {
       type: DataTypes.INTEGER,
+      defaultValue: '0',
     },
     date_created: {
       type: DataTypes.DATE,
