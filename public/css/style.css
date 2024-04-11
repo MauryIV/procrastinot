@@ -225,3 +225,15 @@ body {
   100% { transform: translateY(-100vh); }
 }
 
+/* Animation css */
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+

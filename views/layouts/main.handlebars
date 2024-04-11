@@ -7,6 +7,9 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css'>
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap' rel='stylesheet'>
+    {{!-- Animation CSS --}}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <link rel='stylesheet' href='../css/style.css'>
     <style>
         .star {
@@ -38,7 +41,8 @@
 <body>
     <main>
         <header class="display-flex justify-space-between align-center p-2">
-            <h1>procrastinot</h1>
+   <h1 style="animation-duration: 2s; animation-name: fadeIn; animation-timing-function: ease;">procrastinot</h1>
+
             <nav>
                 {{#if logged_in}}
                 <a href="/dashboard">Dashboard</a>
@@ -78,3 +82,4 @@
     {{/if}}
 </body>
 </html>
+
