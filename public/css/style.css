@@ -1,11 +1,11 @@
 * {
-  font-family: "Space Mono", monospace !important;
+  font-family: 'Space Mono', monospace !important;
   font-weight: 700 !important;
   font-style: normal !important;
 }
 
 .hero {
-  background-image: url("../images/SpaceNerd.jpeg");
+  background-image: url('../images/SpaceNerd.jpeg');
   background-size: 100px 100px;
   background-repeat: no-repeat;
   background-position: top left;

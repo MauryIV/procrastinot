@@ -1,17 +1,17 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
   // Event listener for add project modal
-  const addProjectButton = document.querySelector(".add-project-button");
-  const projectModal = document.getElementById("projectModal");
-  const newProjectButton = document.querySelector(".add-new-project-button");
-  const titleInput = document.querySelector("#newProjectTitle");
-  const descriptionInput = document.querySelector("#newProjectDescription");
-  const closeModalButtons = document.querySelectorAll(".close-modal-button");
+  const addProjectButton = document.querySelector('.add-project-button');
+  const projectModal = document.getElementById('projectModal');
+  const newProjectButton = document.querySelector('.add-new-project-button');
+  const titleInput = document.querySelector('#newProjectTitle');
+  const descriptionInput = document.querySelector('#newProjectDescription');
+  const closeModalButtons = document.querySelectorAll('.close-modal-button');
   let activePage;
 
   // Add project button click event listener
-  addProjectButton.addEventListener("click", (event) => {
-    projectModal.classList.add("is-active");
-    activePage = event.target.getAttribute("data-page");
+  addProjectButton.addEventListener('click', (event) => {
+    projectModal.classList.add('is-active');
+    activePage = event.target.getAttribute('data-page');
   });
 
   // Add new project event listener
@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Close modal button click event listener
   closeModalButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      projectModal.classList.remove("is-active");
+    button.addEventListener('click', () => {
+      projectModal.classList.remove('is-active');
     });
   });
 });

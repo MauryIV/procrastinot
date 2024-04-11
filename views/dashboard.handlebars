@@ -1,32 +1,32 @@
-<section class="hero is-primary">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Apply animate__lightSpeedInLeft animation to the h2 element with the title "Projects" -->
-      <h2 class="title has-text-centered custom-title animate__animated animate__lightSpeedInLeft">Projects</h2>
-      <div id="dashboard-spacing"class="buttons is-centered">
-        <div class="custom-box to-do">
+<section class='hero is-primary'>
+  <div class='hero-body'>
+    <div class='container'>
+      <!-- Apply animate__lightSpeedInLeft animation to the h2 element with the title 'Projects' -->
+      <h2 class='title has-text-centered custom-title animate__animated animate__lightSpeedInLeft'>Projects</h2>
+      <div id='dashboard-spacing'class='buttons is-centered'>
+        <div class='custom-box to-do'>
           {{#if logged_in}}
-          <a href="/todo" class="button is-primary">
+          <a href='/todo' class='button is-primary'>
           {{else}}
-          <a href="/auth" class="button is-primary">
+          <a href='/auth' class='button is-primary'>
           {{/if}}
             To-Do
           </a>
         </div>
-        <div class="custom-box working-on">
+        <div class='custom-box working-on'>
           {{#if logged_in}}
-          <a href="/working" class="button is-primary">
+          <a href='/working' class='button is-primary'>
           {{else}}
-          <a href="/auth" class="button is-primary">
+          <a href='/auth' class='button is-primary'>
           {{/if}}
             Working On
           </a>
         </div>
-        <div class="custom-box completed">
+        <div class='custom-box completed'>
           {{#if logged_in}}
-          <a href="/completed" class="button is-primary">
+          <a href='/completed' class='button is-primary'>
           {{else}}
-          <a href="/auth" class="button is-primary">
+          <a href='/auth' class='button is-primary'>
           {{/if}}
             Completed
           </a>
