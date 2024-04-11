@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const specific = document.getElementById("title");
   const todoButton = document.querySelector('#todo-button');
   const workingButton = document.querySelector('#working-button');
   const completedButton = document.querySelector('#completed-button');
@@ -8,8 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       event.preventDefault();
       const newModel = 'todo';
-      const activeModel = event.currentTarget.getAttribute("data-model");
-      const projectId = event.currentTarget.getAttribute("data-id");
+      const activeModel = specific.getAttribute("data-model");
+      const projectId = specific.getAttribute("data-id");
 
       const getData = await fetch(`/api/${activeModel}/${projectId}`);
       const getProjectData = await getData.json();
@@ -44,8 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       event.preventDefault();
       const newModel = 'working';
-      const activeModel = event.currentTarget.getAttribute("data-model");
-      const projectId = event.currentTarget.getAttribute("data-id");
+      const activeModel = specific.getAttribute("data-model");
+      const projectId = specific.getAttribute("data-id");
 
       const getData = await fetch(`/api/${activeModel}/${projectId}`);
       const getProjectData = await getData.json();
@@ -80,8 +81,8 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       event.preventDefault();
       const newModel = 'completed';
-      const activeModel = event.currentTarget.getAttribute("data-model");
-      const projectId = event.currentTarget.getAttribute("data-id");
+      const activeModel = specific.getAttribute("data-model");
+      const projectId = specific.getAttribute("data-id");
 
       const getData = await fetch(`/api/${activeModel}/${projectId}`);
       const getProjectData = await getData.json();
@@ -115,8 +116,8 @@ document.addEventListener("DOMContentLoaded", function () {
   deleteButton.addEventListener('click', async function(event) {
     try {
       event.preventDefault();
-      const activeModel = event.currentTarget.getAttribute("data-model");
-      const projectId = event.currentTarget.getAttribute("data-id");
+      const activeModel = specific.getAttribute("data-model");
+      const projectId = specific.getAttribute("data-id");
 
       const deleteData = await fetch(`/api/${activeModel}/${projectId}`, {
         method: 'DELETE'
