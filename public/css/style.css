@@ -1,28 +1,31 @@
+* {
+  font-family: "Space Mono", monospace !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+}
+
 .hero {
   background-image: url("../images/SpaceNerd.jpeg");
   background-size: 100px 100px;
   background-repeat: no-repeat;
   background-position: top left;
-  background-color: #3e475a !important;
-  font-family: "Space Mono", monospace;
-  font-weight: 700;
-  font-style: normal;
+  background-color: #31353e !important;
 }
 
 /* For the Landing Page */
 #main-header {
   font-size: 120px;
-  color:white;    
+  color: white;
 }
 
 #sub-header {
   font-size: 50px;
-  color: #7D56B6;
+  color: #7d56b6;
 }
 
 .custom-button {
-  background-color:#d079bd !important;
-  color:white;
+  background-color: #d079bd !important;
+  color: white;
   margin-top: 50px;
 }
 
@@ -33,21 +36,21 @@
 }
 
 .input-field {
-  background-color:#B6B4AE !important;
+  background-color: #b6b4ae !important;
 }
 
 .log-button {
-  background-color: #B558A1!important;
+  background-color: #b558a1 !important;
 }
 
 .about-button {
-  background-color: #7D56B6!important;
+  background-color: #7d56b6 !important;
   margin-right: 555px !important;
 }
 
 .account-button {
   background-color: #5e6bdd !important;
-  color: white;  
+  color: white;
   margin-left: 500px !important;
 }
 
@@ -60,19 +63,38 @@ Page */
 }
 
 #started-button {
-  background-color: #B558A1 !important;
-  color: white;  
+  background-color: #b558a1 !important;
+  color: white;
   margin-top: 25px !important;
 }
 
 .label {
-  color: #B6B4AE !important;
+  color: #b6b4ae !important;
+}
+
+/* Modal */
+.modal-card-head,
+.modal-card-title,
+.modal-card-body,
+.textarea,
+.modal-card-foot,
+.input {
+  background-color: #31353e !important;
+  color: white !important;
 }
 
 /* DashBoard */
 
 body {
-  background-color: #264076 !important;
+  background-color: #31353e !important;
+}
+
+.dark-background {
+  background-color: #31353e !important;
+}
+
+#dashboard-spacing {
+  margin: 29%;
 }
 
 .custom-title {
@@ -83,36 +105,36 @@ body {
 .custom-boxes {
   position: relative;
   padding: 50px;
-  background-color: #273756 !important;
+  background-color: #31353e !important;
   margin-top: 2rem;
 }
 
 .custom-box {
   position: absolute;
-  padding: 5px; 
-  background-color: #32363E !important;
+  padding: 5px;
+  background-color: #31353e !important;
 }
 
 .custom-box.working-on {
-  background-color: #32363E !important;
+  background-color: #31353e !important;
   top: 200px;
   left: 550px;
 }
 
 .custom-box.to-do {
-  background-color: #32363E !important;
+  background-color: #31353e !important;
   top: 550px;
   right: 450px;
 }
 
 .custom-box.completed {
-  background-color: #32363E !important;
+  background-color: #31353e !important;
   top: 400px;
   left: 400px;
 }
 
 .custom-box .button {
-  padding: 20px 30px; 
+  padding: 20px 30px;
   font-size: 30px;
 }
 
@@ -126,30 +148,76 @@ body {
   background-color: #64d4e7 !important;
 }
 
+.working-button {
+  background-color: #64d4e7 !important;
+  color: white;
+  border: none;
+}
+
 .custom-box.to-do * {
   background-color: #c432e9 !important;
+}
+
+.todo-button {
+  background-color: #c432e9 !important;
+  color: white;
+  border: none;
 }
 
 .custom-box.completed * {
   background-color: #6cbe65 !important;
 }
 
+.completed-button {
+  background-color: #6cbe65 !important;
+  color: white;
+  border: none;
+}
+
+.back-button,
+.dashboard-button {
+  background-color: #25206b !important;
+  color: white;
+  border: none;
+}
+
+#startButton {
+  background-color: #065a22 !important;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+#stopButton {
+  background-color: #601414 !important;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+#addFifteen {
+  background-color: #11aca2 !important;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+#subtractFifteen {
+  background-color: #b5bc23 !important;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
 .custom-box.total-time-spent * {
   background-color: #ec4577 !important;
 }
 
-
-
-
-
-
-
 /* Time Display */
-
 
 .time-adjustment {
   align-items: center;
-  color:#6cbe65;
+  color: #6cbe65;
   margin-top: 15px;
 }
 
@@ -158,12 +226,10 @@ body {
 }
 
 .control-buttons {
-  margin-left: 325px; 
-  margin-bottom:30px;
+  margin-left: 325px;
+  margin-bottom: 30px;
   margin-top: 30px;
-
 }
-
 
 @media screen and (max-width: 768px) {
   .custom-boxes {
@@ -180,20 +246,16 @@ body {
     left: auto;
     margin-top: 20px;
   }
-  
-  .custom-box.working-on{
+
+  .custom-box.working-on {
     left: auto;
-    margin-top:20px;
+    margin-top: 20px;
   }
 }
 
-
-
-
-
 body {
   min-height: 100vh;
-  background: radial-gradient(ellipse at bottom, #013155 0%, #01162E 100%);
+  background: radial-gradient(ellipse at bottom, #013155 0%, #01162e 100%);
 }
 
 .star {
@@ -221,14 +283,18 @@ body {
 }
 
 @keyframes move {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-100vh); }
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100vh);
+  }
 }
 
 /* Animation css */
 
 /* Dashboard */
- @keyframes lightSpeedInLeft {
+@keyframes lightSpeedInLeft {
   0% {
     opacity: 0;
     transform: translate3d(-100%, 0, 0) skewX(30deg);
@@ -244,6 +310,3 @@ body {
     transform: translate3d(0, 0, 0);
   }
 }
-
-
-/* Working */

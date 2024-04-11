@@ -9,6 +9,8 @@ let timeCounter = false
 startButton.addEventListener("click", () => {
   const activeModel = specific.getAttribute("data-model");
   const projectId = specific.getAttribute("data-id");
+  startButton.hidden = true;
+  stopButton.hidden = false;
   if (!timeCounter) {
     alert("Timer has started.");
     timeCounter = true
@@ -61,6 +63,8 @@ subtractButton.addEventListener("click", async () => {
 
 const stopButton = document.getElementById("stopButton");
 stopButton.addEventListener("click", () => {
+  stopButton.hidden = true;
+  startButton.hidden = false;
   if (timeCounter) {
     timeCounter = false;
     clearInterval(timerInterval);
@@ -79,13 +83,15 @@ function timeTracker() {
       "MMM D, YYYY [at] hh:mm:ss a"
     );
     const timeSpent = document.getElementById("timeSpent");
-    (async function() {
-      const activeModel = specific.getAttribute("data-model");
-      const projectId = specific.getAttribute("data-id");
-      const getData = await fetch(`/api/${activeModel}/${projectId}`);
-      const getProjectData = await getData.json();
-      timeSpent.textContent = `Time Spent: ${getProjectData.time_applied} minutes`;
-    })();
+    const activeModel = specific.getAttribute("data-model");
+    const projectId = specific.getAttribute("data-id");
+    const getData = await fetch(`/api/${activeModel}/${projectId}`);
+    const getProjectData = await getData.json();
+    if (getProjectData.time_applied == 1) {
+      timeSpent.textContent = `Time Spent: ${getProjectData.time_applied} minute`
+    } else {
+      timeSpent.textContent = `Time Spent: ${getProjectData.time_applied} minutes`
+    }
   }, 1000);
 }
 

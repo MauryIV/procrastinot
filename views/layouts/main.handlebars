@@ -9,12 +9,19 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
     />
     <!-- Google Fonts -->
-    <link href='https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap' rel='stylesheet'>
-    {{!-- Animation CSS --}}
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    {{! Animation CSS }}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="../css/style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.6/dayjs.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.10.6/dayjs.min.js"
+    ></script>
     <style>
       .star { position: absolute; background: white; border-radius: 50px;
       animation: move; animation-iteration-count: infinite; } .type-1 { width:
@@ -26,8 +33,12 @@
 
   <body>
     <main>
-        <header class="display-flex justify-space-between align-center p-2">
-   <h1 style="animation-duration: 2s; animation-name: fadeIn; animation-timing-function: ease;">procrastinot</h1>
+      <header
+        class="dark-background display-flex justify-space-between align-center p-2"
+      >
+        <h1
+          style="animation-duration: 2s; animation-name: fadeIn; animation-timing-function: ease;"
+        >procrastinot</h1>
         <nav>
           {{#if logged_in}}
             <a href="/dashboard">Dashboard</a>

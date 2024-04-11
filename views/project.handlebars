@@ -4,7 +4,12 @@
       <div class="columns is-centered">
         <div class="column is-full">
           <h1>Project Details</h1>
-          <h2 id="title" data-model="{{model}}" data-id="{{id}}" data-time="{{time_applied}}">Title: {{title}}</h2>
+          <h2
+            id="title"
+            data-model="{{model}}"
+            data-id="{{id}}"
+            data-time="{{time_applied}}"
+          >Title: {{title}}</h2>
           <p id="description">Description: {{description}}</p>
           <p>Date Created: {{format_date date_created}}</p>
           <div class="time-adjustment">
@@ -14,32 +19,18 @@
             </div>
             <div class="control-buttons">
               <button id="startButton">Start</button>
-              <button id="stopButton">Stop</button>
-              <button id="addFifteen"
-              >Add 15 min</button>
-              <button 
-                id="subtractFifteen" 
-              >Subtract 15 min</button>
+              <button id="stopButton" hidden>Stop</button>
+              <button id="addFifteen">Add 15 min</button>
+              <button id="subtractFifteen">Subtract 15 min</button>
             </div>
           </div>
           <footer>
-            <button
-              id="todo-button"
-              class="button move-buttons"
-            >Move to To Do</button>
-            <button
-              id="working-button"
-              class="button move-buttons"
-            >Move to Working On</button>
-            <button
-              id="completed-button"
-              class="button move-buttons"
-            >Move to Completed</button>
-            <a href="/{{model}}" class="button">Back to {{model}}</a>
-            <button
-              id="delete-project-button"
-              class="button is-danger"
-            >Delete Project</button>
+            <button id="todo-button" class="button move-buttons todo-button">Move to To Do</button>
+            <button id="working-button" class="button move-buttons working-button">Move to Working On</button>
+            <button id="completed-button" class="button move-buttons completed-button">Move to Completed</button>
+            <a href="/{{model}}" class="button back-button">Back to {{model}}</a>
+            <button id="delete-project-button" class="button is-danger">Delete
+              Project</button>
           </footer>
         </div>
       </div>
