@@ -227,18 +227,7 @@ body {
 
 /* Animation css */
 
-/* @keyframes zoomIn {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
- */
-
-
+/* Dashboard */
  @keyframes lightSpeedInLeft {
   0% {
     opacity: 0;
@@ -255,3 +244,6 @@ body {
     transform: translate3d(0, 0, 0);
   }
 }
+
+
+/* Working */
