@@ -54,50 +54,11 @@ router.put('/:id', withAuth, async (req, res) => {
 
 router.put('/timer/:id', withAuth, async (req, res) => {
   try {
-    const working = await Working.findByPk(req.params.id);
-    if (working.auth_id !== req.session.auth_id) {
-      return res.status(403).json({ message: 'Unauthorized' });
-    }
-    const minutes = working.time_applied
-    const newMinutes = minutes + 1;
-    working.time_applied = `${newMinutes}`;
-    await working.update(req.body);
-    res.status(200).json(working);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-router.put('/plus/:id', withAuth, async (req, res) => {
-  try {
-    const working = await Working.findByPk(req.params.id);
-    if (working.auth_id !== req.session.auth_id) {
-      return res.status(403).json({ message: 'Unauthorized' });
-    }
-    const minutes = working.time_applied
-    const newMinutes = minutes + 15;
-    working.time_applied = `${newMinutes}`;
-    await working.update(req.body);
-    res.status(200).json(working);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-router.put('/minus/:id', withAuth, async (req, res) => {
-  try {
-    const working = await Working.findByPk(req.params.id);
-    if (working.auth_id !== req.session.auth_id) {
-      return res.status(403).json({ message: 'Unauthorized' });
-    }
-    const minutes = working.time_applied;
-    let newMinutes = 0;
-    if (working.time_applied > 14) {
-      newMinutes = minutes - 15;
-    }
-    working.time_applied = `${newMinutes}`;
-    await working.update(req.body);
-    res.status(200).json(working);
+    const { id } = req.params;
+    const { time_applied } = req.body;
+    await Working.update({ time_applied }, { where: { id } });
+    const updatedWorking = await Working.findByPk(id);
+    res.status(200).json(updatedWorking);
   } catch (err) {
     res.status(400).json(err);
   }

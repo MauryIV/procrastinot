@@ -54,50 +54,11 @@ router.put('/:id', withAuth, async (req, res) => {
 
 router.put('/timer/:id', withAuth, async (req, res) => {
   try {
-    const todo = await Todo.findByPk(req.params.id);
-    if (todo.auth_id !== req.session.auth_id) {
-      return res.status(403).json({ message: 'Unauthorized' });
-    }
-    const minutes = todo.time_applied
-    const newMinutes = minutes + 1;
-    todo.time_applied = `${newMinutes}`;
-    await todo.update(req.body);
-    res.status(200).json(todo);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-router.put('/plus/:id', withAuth, async (req, res) => {
-  try {
-    const todo = await Todo.findByPk(req.params.id);
-    if (todo.auth_id !== req.session.auth_id) {
-      return res.status(403).json({ message: 'Unauthorized' });
-    }
-    const minutes = todo.time_applied
-    const newMinutes = minutes + 15;
-    todo.time_applied = `${newMinutes}`;
-    await todo.update(req.body);
-    res.status(200).json(todo);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-router.put('/minus/:id', withAuth, async (req, res) => {
-  try {
-    const todo = await Todo.findByPk(req.params.id);
-    if (todo.auth_id !== req.session.auth_id) {
-      return res.status(403).json({ message: 'Unauthorized' });
-    }
-    const minutes = todo.time_applied;
-    let newMinutes = 0;
-    if (todo.time_applied > 14) {
-      newMinutes = minutes - 15;
-    }
-    todo.time_applied = `${newMinutes}`;
-    await todo.update(req.body);
-    res.status(200).json(todo);
+    const { id } = req.params;
+    const { time_applied } = req.body;
+    await Todo.update({ time_applied }, { where: { id } });
+    const updatedTodo = await Todo.findByPk(id);
+    res.status(200).json(updatedTodo);
   } catch (err) {
     res.status(400).json(err);
   }

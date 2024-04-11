@@ -20,7 +20,7 @@ Working.init(
     },
     time_applied: {
       type: DataTypes.INTEGER,
-      defaultValue: '0',
+      defaultValue: 0,
     },
     date_created: {
       type: DataTypes.DATE,

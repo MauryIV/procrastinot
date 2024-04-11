@@ -2,18 +2,18 @@ const specific = document.getElementById('title');
 const startButton = document.getElementById('startButton');
 const addButton = document.getElementById('addFifteen');
 const subtractButton = document.getElementById('subtractFifteen');
+const activeModel = specific.getAttribute('data-model');
+const projectId = specific.getAttribute('data-id');
 let timerInterval;
 let totalElapsedMinutes = parseInt(startButton.getAttribute('data-time')) || 0;
-let timeCounter = false
+let timeCounter = false;
 
 startButton.addEventListener('click', () => {
-  const activeModel = specific.getAttribute('data-model');
-  const projectId = specific.getAttribute('data-id');
   startButton.hidden = true;
   stopButton.hidden = false;
   if (!timeCounter) {
     alert('Timer has started.');
-    timeCounter = true
+    timeCounter = true;
     updateTimer = setInterval(async function () {
       totalElapsedMinutes++;
       const postData = await fetch(`/api/${activeModel}/timer/${projectId}`, {
@@ -30,8 +30,6 @@ startButton.addEventListener('click', () => {
 });
 
 addButton.addEventListener('click', async () => {
-  const activeModel = specific.getAttribute('data-model');
-  const projectId = specific.getAttribute('data-id');
   totalElapsedMinutes += 15;
   const postData = await fetch(`/api/${activeModel}/timer/${projectId}`, {
     method: 'PUT',
@@ -45,11 +43,9 @@ addButton.addEventListener('click', async () => {
 });
 
 subtractButton.addEventListener('click', async () => {
-  const activeModel = specific.getAttribute('data-model');
-  const projectId = specific.getAttribute('data-id');
-  if (totalElapsedMinutes > 14) {
+  if (totalElapsedMinutes > 15) {
     totalElapsedMinutes -= 15;
-  } else (totalElapsedMinutes = 0)
+  } else totalElapsedMinutes = 0;
   const postData = await fetch(`/api/${activeModel}/timer/${projectId}`, {
     method: 'PUT',
     headers: {
@@ -88,9 +84,9 @@ function timeTracker() {
     const getData = await fetch(`/api/${activeModel}/${projectId}`);
     const getProjectData = await getData.json();
     if (getProjectData.time_applied == 1) {
-      timeSpent.textContent = `Time Spent: ${getProjectData.time_applied} minute`
+      timeSpent.textContent = `Time Spent: ${getProjectData.time_applied} minute`;
     } else {
-      timeSpent.textContent = `Time Spent: ${getProjectData.time_applied} minutes`
+      timeSpent.textContent = `Time Spent: ${getProjectData.time_applied} minutes`;
     }
   }, 1000);
 }
