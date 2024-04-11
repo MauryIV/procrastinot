@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 # Procrastinot
 
 Procrastinot is a full-stack application for managing timers built with Node.js, Express.js, Handlebars.js, MySQL, and Sequelize ORM. It allows users to start, stop, and reset timers for different tasks.
@@ -31,7 +29,7 @@ To install and run Procrastinot locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/procrastinot.git
+   git clone https://github.com/MauryIV/procrastinot.git
     ```
 2. Navigate to the project directory:
     ```bash
@@ -111,4 +109,3 @@ Link to animation page: https://www.eduardo-araujo.com/tips/post-106
 
 
 
->>>>>>> Stashed changes
