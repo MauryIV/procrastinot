@@ -1,62 +1,37 @@
 <section class="hero is-primary">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title has-text-centered custom-title">Projects</h2>
-    </div>
-  </div>
-</section>
-<section class="section custom-boxes">
-  <div class="container">
-    <div class="custom-box to-do">
-      {{#if logged_in}}
-      <a href="/todo" class="box">
-      {{else}}
-      <a href="/auth" class="box">
-      {{/if}}
-        <p class="title">To-Do</p>
-        <!-- Placeholder for to-do -->
-        <div class="task">
-          <p class="task-title">{{this.title}}</p>
-          <p class="task-description">{{this.description}}</p>
+      <!-- Apply animate__lightSpeedInLeft animation to the h2 element with the title "Projects" -->
+      <h2 class="title has-text-centered custom-title animate__animated animate__lightSpeedInLeft">Projects</h2>
+      <div class="buttons is-centered">
+        <div class="custom-box to-do">
+          {{#if logged_in}}
+          <a href="/todo" class="button is-primary">
+          {{else}}
+          <a href="/auth" class="button is-primary">
+          {{/if}}
+            To-Do
+          </a>
         </div>
-      </a>
-    </div>
-    <div class="custom-box working-on">
-      {{#if logged_in}}
-      <a href="/working" class="box">
-      {{else}}
-      <a href="/auth" class="box">
-      {{/if}}
-        <p class="title">Working On</p>
-        <!-- Placeholder for working on -->
-        <div class="task">
-          <p class="task-title">{{this.title}}</p>
-          <p class="task-description">{{this.description}}</p>
+        <div class="custom-box working-on">
+          {{#if logged_in}}
+          <a href="/working" class="button is-primary">
+          {{else}}
+          <a href="/auth" class="button is-primary">
+          {{/if}}
+            Working On
+          </a>
         </div>
-      </a>
-    </div>
-    <div class="custom-box completed">
-      {{#if logged_in}}
-      <a href="/completed" class="box">
-      {{else}}
-      <a href="/auth" class="box">
-      {{/if}}
-        <p class="title">Completed</p>
-        <!-- Placeholder for tasks -->
-        <div class="task">
-          <p class="task-title">{{this.title}}</p>
-          <p class="task-description">{{this.description}}</p>
+        <div class="custom-box completed">
+          {{#if logged_in}}
+          <a href="/completed" class="button is-primary">
+          {{else}}
+          <a href="/auth" class="button is-primary">
+          {{/if}}
+            Completed
+          </a>
         </div>
-      </a>
-    </div>
-    <div class="custom-box total-time-spent">
-      <div class="box">
-        <p class="title">Total Time Spent</p>
-        <p class="subtitle">[data pulled]</p>
       </div>
     </div>
   </div>
 </section>
-
-
-{{!-- <script src="/js/timeTrack.js"></script> --}}

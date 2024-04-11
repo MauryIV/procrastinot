@@ -1,65 +1,50 @@
-<!-- Hero section for displaying completed projects -->
 <section class='hero is-fullheight is-primary'>
   <div class='hero-body'>
     <div class='container has-text-centered'>
       <div class='columns is-centered'>
         <div class='column is-full'>
-          <!-- Title for the completed projects section -->
-          <h1 class='title'>Completed</h1>
+          <!-- Apply backInDown animation to the h1 element -->
+          <h1 class='title animate__animated animate__backInDown'>Completed</h1>
           <div class='field'>
-            <!-- Check if there are completed projects -->
             {{#if completeds.length}}
               {{#each completeds as |completed|}}
                 <div class='completed-item'>
-                  <!-- Link to the completed project with title -->
-                  <a href='/completed/{{completed.id}}'>{{completed.title}}</a>
-                  <h4>{{completed.description}}</h4>
-                  <!-- Section for time adjustment and tracking -->
+                  <div class="project-details">
+                    <a href='/completed/{{completed.id}}'>{{completed.title}}</a>
+                    <h4>{{completed.description}}</h4>
+                  </div>
                   <div class='time-adjustment'>
-                    <p>Time Spent:{{completed.time_applied}}</p>
                     <div class='time-display'>
-                      <!-- Display the timer for the project -->
+                      <p>Time Spent: {{completed.time_applied}}</p>
                       <p><span class='project-time' id="timerDisplay_{{completed.id}}"></span></p>
                     </div>
-                    <!-- Buttons for starting, stopping, and resetting the timer -->
-                    <button id='startButton_{{completed.id}}'>Start</button>
-                    <button id='stopButton_{{completed.id}}'>Stop</button>
-                    <button id="resetButton_{{completed.id}}">Reset</button>
                     <div class='control-buttons'>
-                      <!-- Buttons for increasing and decreasing hours -->
+                      <button id='startButton_{{completed.id}}'>Start</button>
+                      <button id='stopButton_{{completed.id}}'>Stop</button>
+                      <button id="resetButton_{{completed.id}}">Reset</button>
                       <i class='fas fa-arrow-up increase-hour'></i>
                       <i class='fas fa-arrow-down decrease-hour'></i>
-                      <!-- Delete button -->
-                      <div class='delete-button'>                 
-                      </div>
                     </div>
                   </div>
                 </div>
               {{/each}}
             {{else}}
-              <!-- Message displayed when there are no completed projects -->
               <p>None completed yet.</p>
             {{/if}}
-            <!-- Include modal template -->
             {{> modal}}
           </div>
-          <!-- Button to add a new project -->
           <div class='field'>
             <div class='control'>
               <button class='button is-primary add-button add-project-button' data-page='completed' data-id='{{completed.id}}'>Add new Project</button>
             </div>
           </div>
-          <!-- Buttons for navigating to other sections -->
           <div class='buttons is-centered mt-5'>
             <a href='/dashboard' class='button is-success dashboard-button'>Dashboard</a>
-            <a href='/todo' class='button is-info todo-button'>To-Do</a>
             <a href='/working' class='button is-info working-button'>Working</a>
+            <a href='/todo' class='button is-info completed-button'>To-Do</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<script src="./js/completed.js"></script>
-{{!-- <script src="./js/timeTrack.js"></script> --}}

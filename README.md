@@ -1,3 +1,4 @@
+
 # Procrastinot
 
 Procrastinot is a full-stack application for managing timers built with Node.js, Express.js, Handlebars.js, MySQL, and Sequelize ORM. It allows users to start, stop, and reset timers for different tasks.
@@ -104,7 +105,6 @@ Special thanks to our instructor Stephen Woosley and teacher aid Nick Sandoval f
 
 Special thanks to Eduardo Araujo for the captivating Star Animation effect used in this project. Your contribution has added a delightful visual experience for our users, and we sincerely appreciate your creativity and talent. Your directions were simple and effective.
 Link to animation page: https://www.eduardo-araujo.com/tips/post-106
-
 
 
 
