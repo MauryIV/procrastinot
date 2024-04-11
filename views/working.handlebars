@@ -3,7 +3,8 @@
     <div class='container has-text-centered'>
       <div class='columns is-centered'>
         <div class='column is-full'>
-          <h1 class='title'>Working</h1>
+          <!-- Apply bounceInLeft animation to the h1 element -->
+          <h1 class='title animate__animated animate__bounceInLeft'>Working</h1>
           <div class='field'>
             {{#if workings.length}}
               {{#each workings as |working|}}
@@ -47,6 +48,3 @@
     </div>
   </div>
 </section>
-
-{{!-- <script src="./js/working.js"></script>
-<script src="./js/timeTrack.js"></script> --}}
