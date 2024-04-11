@@ -14,7 +14,7 @@ const loginFunction = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      console.error(response.error);
+      alert('Username or Password is incorrect.');
     }
   }
 };

@@ -1,15 +1,19 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
+  const specific = document.getElementById('title');
   const todoButton = document.querySelector('#todo-button');
   const workingButton = document.querySelector('#working-button');
   const completedButton = document.querySelector('#completed-button');
   const deleteButton = document.querySelector('#delete-project-button');
+  const activeModel = specific.getAttribute('data-model');
 
-  todoButton.addEventListener('click', async function(event) {
+  // This takes the button on the active page away
+  document.getElementById(`${activeModel}-button`).style.display = 'none';
+
+  todoButton.addEventListener('click', async function (event) {
     try {
       event.preventDefault();
       const newModel = 'todo';
-      const activeModel = event.currentTarget.getAttribute("data-model");
-      const projectId = event.currentTarget.getAttribute("data-id");
+      const projectId = specific.getAttribute('data-id');
 
       const getData = await fetch(`/api/${activeModel}/${projectId}`);
       const getProjectData = await getData.json();
@@ -17,14 +21,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const postData = await fetch(`/api/${newModel}`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-          body: JSON.stringify(getProjectData)
+        body: JSON.stringify(getProjectData),
       });
-    
+
       if (postData.ok) {
         const deleteData = await fetch(`/api/${activeModel}/${projectId}`, {
-          method: 'DELETE'
+          method: 'DELETE',
         });
         if (deleteData.ok) {
           console.log('Data moved successfully.');
@@ -40,12 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  workingButton.addEventListener('click', async function(event) {
+  workingButton.addEventListener('click', async function (event) {
     try {
       event.preventDefault();
       const newModel = 'working';
-      const activeModel = event.currentTarget.getAttribute("data-model");
-      const projectId = event.currentTarget.getAttribute("data-id");
+      const projectId = specific.getAttribute('data-id');
 
       const getData = await fetch(`/api/${activeModel}/${projectId}`);
       const getProjectData = await getData.json();
@@ -53,14 +56,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const postData = await fetch(`/api/${newModel}`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-          body: JSON.stringify(getProjectData)
+        body: JSON.stringify(getProjectData),
       });
-      
+
       if (postData.ok) {
         const deleteData = await fetch(`/api/${activeModel}/${projectId}`, {
-          method: 'DELETE'
+          method: 'DELETE',
         });
         if (deleteData.ok) {
           console.log('Data moved successfully.');
@@ -76,12 +79,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  completedButton.addEventListener('click', async function(event) {
+  completedButton.addEventListener('click', async function (event) {
     try {
       event.preventDefault();
       const newModel = 'completed';
-      const activeModel = event.currentTarget.getAttribute("data-model");
-      const projectId = event.currentTarget.getAttribute("data-id");
+      const projectId = specific.getAttribute('data-id');
 
       const getData = await fetch(`/api/${activeModel}/${projectId}`);
       const getProjectData = await getData.json();
@@ -89,14 +91,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const postData = await fetch(`/api/${newModel}`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-          body: JSON.stringify(getProjectData)
+        body: JSON.stringify(getProjectData),
       });
-    
+
       if (postData.ok) {
         const deleteData = await fetch(`/api/${activeModel}/${projectId}`, {
-          method: 'DELETE'
+          method: 'DELETE',
         });
         if (deleteData.ok) {
           console.log('Data moved successfully.');
@@ -112,14 +114,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  deleteButton.addEventListener('click', async function(event) {
+  deleteButton.addEventListener('click', async function (event) {
     try {
       event.preventDefault();
-      const activeModel = event.currentTarget.getAttribute("data-model");
-      const projectId = event.currentTarget.getAttribute("data-id");
+      const projectId = specific.getAttribute('data-id');
 
       const deleteData = await fetch(`/api/${activeModel}/${projectId}`, {
-        method: 'DELETE'
+        method: 'DELETE',
       });
       if (deleteData.ok) {
         console.log('Project deleted successfully.');
