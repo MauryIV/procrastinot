@@ -1,8 +1,5 @@
 const router = require('express').Router();
-const { Auth, Todo, Working, Completed } = require('../models');
-// const TimeManager = require('als-time-manager');
-
-// const timeManager = new TimeManager();
+const { Auth } = require('../models');
 
 router.get('/', (req, res) => {
   res.render('landingpage', { logged_in: req.session.logged_in });

@@ -1,39 +1,92 @@
-const TimeManager = require('als-time-manager');
+const specific = document.getElementById("title");
+const startButton = document.getElementById("startButton");
+const addButton = document.getElementById("addFifteen");
+const subtractButton = document.getElementById("subtractFifteen");
+let timerInterval;
+let totalElapsedMinutes = parseInt(startButton.getAttribute("data-time")) || 0;
+let timeCounter = false
 
-
-const timeManager = new TimeManager();
-
-const startButton = document.getElementById('startButton');
-let timerInterval; 
-startButton.addEventListener('click', () => {
-    const startTime = Date.now(); 
-    timerInterval = setInterval(() => {
-        const elapsedTime = Date.now() - startTime; 
-        const formattedTime = timeManager.formatTime(elapsedTime / 1000); 
-        document.getElementById('timerDisplay').textContent = formattedTime; 
-    }, 1000); 
+startButton.addEventListener("click", () => {
+  const activeModel = specific.getAttribute("data-model");
+  const projectId = specific.getAttribute("data-id");
+  if (!timeCounter) {
+    alert("Timer has started.");
+    timeCounter = true
+    updateTimer = setInterval(async function () {
+      totalElapsedMinutes++;
+      const postData = await fetch(`/api/${activeModel}/timer/${projectId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ time_applied: totalElapsedMinutes }),
+      });
+      const responseData = await postData.json();
+      console.log(responseData);
+    }, 60000);
+  }
 });
 
-// Stops the timer when the stop button is clicked
-const stopButton = document.getElementById('stopButton');
-stopButton.addEventListener('click', () => {
+addButton.addEventListener("click", async () => {
+  const activeModel = specific.getAttribute("data-model");
+  const projectId = specific.getAttribute("data-id");
+  totalElapsedMinutes += 15;
+  const postData = await fetch(`/api/${activeModel}/timer/${projectId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ time_applied: totalElapsedMinutes }),
+  });
+  const responseData = await postData.json();
+  console.log(responseData);
+});
+
+subtractButton.addEventListener("click", async () => {
+  const activeModel = specific.getAttribute("data-model");
+  const projectId = specific.getAttribute("data-id");
+  if (totalElapsedMinutes > 14) {
+    totalElapsedMinutes -= 15;
+  } else (totalElapsedMinutes = 0)
+  const postData = await fetch(`/api/${activeModel}/timer/${projectId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ time_applied: totalElapsedMinutes }),
+  });
+  const responseData = await postData.json();
+  console.log(responseData);
+});
+
+const stopButton = document.getElementById("stopButton");
+stopButton.addEventListener("click", () => {
+  if (timeCounter) {
+    timeCounter = false;
     clearInterval(timerInterval);
-    console.log("Timer stopped because the stop button was clicked.");
+    alert("Timer has stopped.");
+  }
 });
 
-// Stops timer when the window is closed
-window.addEventListener('beforeunload', () => {
-    clearInterval(timerInterval);
+window.addEventListener("beforeunload", () => {
+  clearInterval(timerInterval);
 });
 
-function updateTimerDisplay() {
-    const timerDisplay = document.getElementById('timerDisplay');
-    timerDisplay.textContent = timeManager.getCurrentTime();
+function timeTracker() {
+  setInterval(async function () {
+    const now = dayjs();
+    document.getElementById("timer").textContent = now.format(
+      "MMM D, YYYY [at] hh:mm:ss a"
+    );
+    const timeSpent = document.getElementById("timeSpent");
+    (async function() {
+      const activeModel = specific.getAttribute("data-model");
+      const projectId = specific.getAttribute("data-id");
+      const getData = await fetch(`/api/${activeModel}/${projectId}`);
+      const getProjectData = await getData.json();
+      timeSpent.textContent = `Time Spent: ${getProjectData.time_applied} minutes`;
+    })();
+  }, 1000);
 }
 
-const resetButton = document.getElementById('resetButton');
-resetButton.addEventListener('click', () => {
-    clearInterval(timerInterval); // Stops the current timer 
-    // Resets the timer
-    document.getElementById('timerDisplay').textContent = '00:00:00';
-});
+timeTracker();
