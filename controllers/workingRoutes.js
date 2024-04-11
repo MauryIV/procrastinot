@@ -29,7 +29,7 @@ router.get('/:id', withAuth, async (req, res) => {
       ],
     });
     const working = workingData.get({ plain: true });
-    const isCreator = (working.auth_id === req.session.auth_id);
+    const isCreator = working.auth_id === req.session.auth_id;
     res.render('project', {
       ...working,
       logged_in: req.session.logged_in,
