@@ -14,7 +14,7 @@ Procrastinot is a full-stack application for managing timers built with Node.js,
 9. [Acknowledgements](#acknowledgements)
 
 ## Introduction
-Procrastinot is a real-world application developed as part of a coding bootcamp project. It provides users with a platform to start, stop, and reset timers for various tasks. The application follows the Model-View-Controller (MVC) architecture and includes authentication features for user security.
+Procrastinot is a real-world application developed as part of a coding bootcamp project. It provides users with a platform to start, stop, and reset timers for various tasks. The application follows the Model-View-Controller (MVC) architecture and includes authentication features for user security. [procrastinot](https://procrastinot.onrender.com/)
 
 ## Technologies Used
 - Node.js: JavaScript runtime environment.
@@ -23,6 +23,11 @@ Procrastinot is a real-world application developed as part of a coding bootcamp 
 - MySQL: Relational database management system.
 - Sequelize ORM: Object-relational mapping tool for Node.js.
 - Star Animation: Custom animation library for visual effects.
+
+## Visuals
+![Screenshot 2024-04-11 at 8 00 49 PM](https://github.com/MauryIV/procrastinot/assets/146037880/05764faa-d62a-4e73-8f00-7427d946fdfc)
+![Screenshot 2024-04-11 at 8 01 03 PM](https://github.com/MauryIV/procrastinot/assets/146037880/1fe1c6c1-92ae-4d48-abe8-8bbbf45b512d)
+![Screenshot 2024-04-11 at 8 01 21 PM](https://github.com/MauryIV/procrastinot/assets/146037880/e2d5a5f7-cb0a-40f5-892a-7914d8ac25b0)
 
 ## Installation
 To install and run Procrastinot locally, follow these steps:
@@ -83,7 +88,7 @@ Procrastinot was developed by the following team members:
 
 ## Deployment
 
-Procrastinot is deployed using Heroku.
+Procrastinot is deployed using Render [here](https://procrastinot.onrender.com/).
 
 ## Contributing
 
