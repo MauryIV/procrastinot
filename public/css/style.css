@@ -1,16 +1,20 @@
 * {
-  font-family: 'Space Mono', monospace !important;
+  font-family: "Space Mono", monospace !important;
   font-weight: 700 !important;
   font-style: normal !important;
 }
 
 .hero {
-  background-image: url('../images/SpaceNerd.jpeg');
+  background-image: url("../images/SpaceNerd.jpeg");
   background-size: 100px 100px;
   background-repeat: no-repeat;
   background-position: top left;
   background-color: #31353e !important;
 }
+
+button {
+  margin-bottom: 5px;
+} 
 
 /* For the Landing Page */
 #main-header {
@@ -30,7 +34,6 @@
 }
 
 /* For the Log in Page */
-
 .title {
   font-size: 90px;
 }
@@ -51,12 +54,12 @@
 .account-button {
   background-color: #5e6bdd !important;
   color: white;
+  border: none;
   margin-left: 500px !important;
 }
 
 /* For New Account 
 Page */
-
 .create {
   font-size: 60px;
   margin-bottom: 20px;
@@ -83,10 +86,14 @@ Page */
   color: white !important;
 }
 
-/* DashBoard */
+.modal-card-foot {
+  justify-content: space-between;
+}
 
+/* DashBoard */
 body {
   background-color: #31353e !important;
+  background-size: cover !important;
 }
 
 .dark-background {
@@ -94,7 +101,7 @@ body {
 }
 
 #dashboard-spacing {
-  margin: 29%;
+  margin: 100%;
 }
 
 .custom-title {
@@ -118,19 +125,19 @@ body {
 .custom-box.working-on {
   background-color: #31353e !important;
   top: 200px;
-  left: 550px;
+  left: 20%;
 }
 
 .custom-box.to-do {
   background-color: #31353e !important;
-  top: 550px;
-  right: 450px;
+  top: 500px;
+  left: 70%;
 }
 
 .custom-box.completed {
   background-color: #31353e !important;
-  top: 400px;
-  left: 400px;
+  top: 350px;
+  left: 42%;
 }
 
 .custom-box .button {
@@ -214,7 +221,6 @@ body {
 }
 
 /* Time Display */
-
 .time-adjustment {
   align-items: center;
   color: #6cbe65;
@@ -231,30 +237,8 @@ body {
   margin-top: 30px;
 }
 
-@media screen and (max-width: 768px) {
-  .custom-boxes {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .custom-box.to-do {
-    right: auto;
-    margin-top: 20px;
-  }
-
-  .custom-box.completed {
-    left: auto;
-    margin-top: 20px;
-  }
-
-  .custom-box.working-on {
-    left: auto;
-    margin-top: 20px;
-  }
-}
-
 body {
-  min-height: 100vh;
+  min-height: 100%;
   background: radial-gradient(ellipse at bottom, #013155 0%, #01162e 100%);
 }
 
@@ -308,5 +292,225 @@ body {
   }
   100% {
     transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Screen adjustments */
+@media screen and (max-width: 980px) {
+  #main-header {
+    font-size: 110px;
+  }
+}
+
+@media screen and (max-width: 905px) {
+  #main-header {
+    font-size: 90px;
+  }
+  #sub-header {
+    font-size: 40px;
+  }
+  #landing-login {
+    font-size: 20px;
+    padding: 5px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .modal-content {
+    padding: 10%;
+    margin-right: 10%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #login-page {
+    max-width: 650px !important;
+  }
+  .about-button {
+    margin-right: 500px !important;
+  }
+  .account-button {
+    margin-left: 400px !important;
+  }
+}
+
+@media screen and (max-width: 708px) {
+  .control-buttons{
+    margin-left: auto;
+  }
+  #about-title,
+  #main-header {
+    font-size: 70px;
+  }
+  #about-content {
+    font-size: 14px;
+  }
+  #sub-header {
+    font-size: 30px;
+  }
+  #landing-login {
+    font-size: 16px;
+    padding: 4px !important;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  #dashboard-title {
+    font-size: 80px;
+    padding-top: 50px;
+  }
+  .custom-box .button {
+    font-size: 20px;
+  }
+  #login-page {
+    max-width: 550px !important;
+  }
+  .about-button {
+    margin-right: 400px !important;
+  }
+  .account-button {
+    margin-left: 300px !important;
+  }
+}
+
+@media screen and (max-width: 565px) {
+  #about-title {
+    font-size: 50px;
+  }
+  #about-content {
+    font-size: 15px;
+  }
+  #login-page {
+    max-width: 450px !important;
+  }
+  .about-button {
+    margin-right: 300px !important;
+  }
+  .account-button {
+    margin-left: 200px !important;
+  }
+}
+
+@media screen and (max-width: 555px) {
+  #completed-title,
+  #profile-title {
+    font-size: 55px;
+  }
+  .custom-box.working-on {
+    left: 30%;
+  }
+  .custom-box.to-do {
+    left: 60%;
+  }
+  .custom-box.completed {
+    left: 42%;
+  }
+  #main-header {
+    font-size: 50px;
+  }
+  #sub-header {
+    font-size: 25px;
+  }
+  #landing-login {
+    font-size: 15px;
+    padding: 4px !important;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  #dashboard-title,
+  #working-title,
+  #todo-title {
+    font-size: 55px;
+  }
+  .custom-box.working-on {
+    top: 150px;
+    left: 15%;
+  }
+  .custom-box.to-do {
+    top: 350px;
+    left: 60%;
+  }
+  .custom-box.completed {
+    top: 250px;
+    left: 35%;
+  }
+  .custom-box .button {
+    font-size: 18px;
+  }
+  #login-title {
+    font-size: 80px;
+  }
+  #login-page {
+    max-width: 350px !important;
+  }
+  .about-button {
+    margin-top: 10px;
+    margin-right: 200px !important;
+  }
+  .account-button {
+    margin-left: 100px !important;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  #about-title {
+    font-size: 35px;
+  }
+  #about-content {
+    font-size: 14px;
+  }
+  #create-title,
+  #main-header {
+    font-size: 40px;
+  }
+  #sub-header {
+    font-size: 20px;
+  }
+  #landing-login {
+    font-size: 16px;
+    padding: 4px !important;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .modal-card-foot .button {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  #completed-title,
+  #profile-title {
+    font-size: 42px;
+  }
+  .profile-text {
+    font-size: 14px
+  }
+  .title {
+    font-size: 70px;
+  }
+  #login-page {
+    max-width: 300px !important;
+  }
+  .about-button {
+    margin-top: 10px;
+    margin-right: 150px !important;
+  }
+  .account-button {
+    margin-left: 50px !important;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  #main-header {
+    font-size: 35px;
+  }
+  #sub-header {
+    font-size: 18px;
+  }
+  #landing-login {
+    font-size: 16px;
+    padding: 4px !important;
   }
 }

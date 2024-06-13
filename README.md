@@ -20,7 +20,7 @@ Procrastinot is a real-world application developed as part of a coding bootcamp 
 - Node.js: JavaScript runtime environment.
 - Express.js: Web application framework for Node.js.
 - Handlebars.js: Templating engine for rendering dynamic HTML content.
-- MySQL: Relational database management system.
+- PostgreSQL: Relational database management system.
 - Sequelize ORM: Object-relational mapping tool for Node.js.
 - Star Animation: Custom animation library for visual effects.
 
@@ -109,8 +109,3 @@ Special thanks to our instructor Stephen Woosley and teacher aid Nick Sandoval f
 
 Special thanks to Eduardo Araujo for the captivating Star Animation effect used in this project. Your contribution has added a delightful visual experience for our users, and we sincerely appreciate your creativity and talent. Your directions were simple and effective.
 Link to animation page: https://www.eduardo-araujo.com/tips/post-106
-
-
-
-
-
