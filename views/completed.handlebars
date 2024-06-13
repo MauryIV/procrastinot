@@ -10,7 +10,7 @@
               {{#each completeds as |completed|}}
                 <div class='completed-item'>
                   <div class="project-details">
-                    <a href='/completed/{{completed.id}}'>{{completed.title}}</a>
+                    <a class='clickable-project' href='/completed/{{completed.id}}'>{{completed.title}}</a>
                     <h4>{{completed.description}}</h4>
                   </div>
                   <div class='time-adjustment'>

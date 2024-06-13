@@ -2,10 +2,11 @@ const specific = document.getElementById('title');
 const startButton = document.getElementById('startButton');
 const addButton = document.getElementById('addFifteen');
 const subtractButton = document.getElementById('subtractFifteen');
+const stopButton = document.getElementById('stopButton');
 const activeModel = specific.getAttribute('data-model');
 const projectId = specific.getAttribute('data-id');
 let timerInterval;
-let totalElapsedMinutes = parseInt(startButton.getAttribute('data-time')) || 0;
+let totalElapsedMinutes = parseInt(specific.getAttribute('data-time'));
 let timeCounter = false;
 
 startButton.addEventListener('click', () => {
@@ -14,50 +15,61 @@ startButton.addEventListener('click', () => {
   if (!timeCounter) {
     alert('Timer has started.');
     timeCounter = true;
-    updateTimer = setInterval(async function () {
+    timerInterval = setInterval(async () => {
       totalElapsedMinutes++;
-      const postData = await fetch(`/api/${activeModel}/timer/${projectId}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ time_applied: totalElapsedMinutes }),
-      });
-      const responseData = await postData.json();
-      console.log(responseData);
+      try {
+        const postData = await fetch(`/api/${activeModel}/timer/${projectId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ time_applied: totalElapsedMinutes }),
+        });
+        const responseData = await postData.json();
+        console.log(responseData);
+      } catch (error) {
+        console.error('Problem adding minute: ', error);
+      }
     }, 60000);
   }
 });
 
 addButton.addEventListener('click', async () => {
   totalElapsedMinutes += 15;
-  const postData = await fetch(`/api/${activeModel}/timer/${projectId}`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ time_applied: totalElapsedMinutes }),
-  });
-  const responseData = await postData.json();
-  console.log(responseData);
+  try {
+    const postData = await fetch(`/api/${activeModel}/timer/${projectId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ time_applied: totalElapsedMinutes }),
+    });
+    const responseData = await postData.json();
+    console.log(responseData);
+  } catch (error) {
+    console.error('Problem adding 15: ', error);
+  }
 });
 
 subtractButton.addEventListener('click', async () => {
   if (totalElapsedMinutes > 15) {
     totalElapsedMinutes -= 15;
   } else totalElapsedMinutes = 0;
-  const postData = await fetch(`/api/${activeModel}/timer/${projectId}`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ time_applied: totalElapsedMinutes }),
-  });
-  const responseData = await postData.json();
-  console.log(responseData);
+  try {
+    const postData = await fetch(`/api/${activeModel}/timer/${projectId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ time_applied: totalElapsedMinutes }),
+    });
+    const responseData = await postData.json();
+    console.log(responseData);
+  } catch (error) {
+    console.error('Problem subtracting 15: ', error);
+  }
 });
 
-const stopButton = document.getElementById('stopButton');
 stopButton.addEventListener('click', () => {
   stopButton.hidden = true;
   startButton.hidden = false;
