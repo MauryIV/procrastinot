@@ -10,7 +10,7 @@
               {{#each todos as |todo|}}
                 <div class='todo-item'>
                   <div class='project-details'>
-                    <a href='/todo/{{todo.id}}'>{{todo.title}}</a>
+                    <a class='clickable-project' href='/todo/{{todo.id}}'>{{todo.title}}</a>
                     <h4>{{todo.description}}</h4>
                   </div>
                   <div class='time-adjustment'>

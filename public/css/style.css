@@ -16,6 +16,10 @@ button {
   margin-bottom: 5px;
 } 
 
+.clickable-project {
+  color: blueviolet !important;
+} 
+
 /* For the Landing Page */
 #main-header {
   font-size: 120px;
@@ -483,6 +487,9 @@ body {
   #completed-title,
   #profile-title {
     font-size: 42px;
+  }
+  #login-title {
+    font-size: 50px;
   }
   .profile-text {
     font-size: 14px
