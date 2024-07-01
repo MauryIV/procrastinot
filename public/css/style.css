@@ -5,13 +5,12 @@
 }
 
 .hero {
-  background-image: url("../images/SpaceNerd.jpeg");
+  /* background-image: url("../images/SpaceNerd.jpeg"); */
   background-size: 100px 100px;
   background-repeat: no-repeat;
   background-position: top left;
   background-color: #31353e !important;
 }
-
 button {
   margin-bottom: 5px;
 } 
